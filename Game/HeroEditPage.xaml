@@ -8,7 +8,7 @@
       d:DesignHeight="500" d:DesignWidth="800"
       Title="HeroEditPage">
 
-    <Grid Background="#FF2F2F2F">
+    <Grid Height="500" Width="800" Background="#FF2F2F2F">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="269*"/>
             <ColumnDefinition Width="317*"/>
@@ -20,6 +20,9 @@
         </Grid.RowDefinitions>
 
         <Border BorderThickness="1.5" Grid.Row="0" Grid.ColumnSpan="3" Margin="2">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>
+            </Border.Effect>
             <Border.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFBF7200"/>
@@ -30,6 +33,10 @@
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Grid.ColumnSpan="2">
                 <TextBox x:Name="NameTbx" Width="150" Height="45" FontSize="16" TextAlignment="Center" VerticalContentAlignment="Center" Cursor="IBeam"></TextBox>
                 <ComboBox x:Name="ClassCbx" Width="150" Height="45" FontSize="16" SelectionChanged="ClassCbx_SelectionChanged" Cursor="Hand">
+                    <ComboBox.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#7F383838" />
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#7F6F6F6F" />
+                    </ComboBox.Resources>
                     <ComboBoxItem>Наёмник</ComboBoxItem>
                     <ComboBoxItem>Рейдер</ComboBoxItem>
                     <ComboBoxItem>Дитя Атома</ComboBoxItem>
@@ -47,6 +54,9 @@
         </Border>
 
         <Border BorderThickness="1.5" Grid.Row="1" Grid.ColumnSpan="1" Margin="2">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>
+            </Border.Effect>
             <Border.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFBF7200"/>
@@ -84,7 +94,7 @@
                 </StackPanel>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="PerkPlus" Height="45" Width="100" Click="PerkPlus_Click" Cursor="Hand" Margin="5 0">
+                        <Button x:Name="PerkPlus" Height="40" Width="100" Click="PerkPlus_Click" Cursor="Hand" Margin="5 0">
                             <TextBlock FontSize="16" Foreground="White" >Прокачать</TextBlock>
                         </Button>
                         <TextBlock x:Name="PerkTitleTb" FontSize="16"></TextBlock>
@@ -94,7 +104,10 @@
             </StackPanel>
         </Border>
 
-        <Border BorderThickness="1.5" Grid.Row="1" Grid.Column="2" Margin="2">
+        <Border BorderThickness="1.5" Grid.Row="1" Grid.Column="2" Margin="2" Cursor="">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>
+            </Border.Effect>
             <Border.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFBF7200"/>
@@ -126,6 +139,32 @@
                     <TextBlock FontSize="16">Крит. урон:</TextBlock>
                     <TextBlock x:Name="CrtDamageTb" Width="50" TextAlignment="Center"></TextBlock>
                 </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border BorderThickness="1.5" Grid.Row="1" Grid.Column="1" Margin="2">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFBF7200"/>
+                    <GradientStop Color="#FFFF9800" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <StackPanel>
+                <Grid Height="289" VerticalAlignment="Top">
+                    <Grid.Effect>
+                        <DropShadowEffect Direction="270"/>
+                    </Grid.Effect>
+                    <Image  Source="/Resources/display_bg.png" Height="289" Stretch="Fill" />
+                    <Image x:Name="Merc" Visibility="Collapsed"  Source="/Resources/Merc.png"/>
+                    <Image x:Name="Raider" Source="/Resources/Raider.png" Visibility="Collapsed"/>
+                    <Image x:Name="Atom" Source="/Resources/Atom.png"  Visibility="Collapsed"/>
+                </Grid>
+                <Button Margin="10 45">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>
+                    </Button.Effect>
+                    <TextBlock FontSize="16" Foreground="White">Сохранить</TextBlock>
+                </Button>
             </StackPanel>
         </Border>
 

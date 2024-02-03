@@ -31,8 +31,12 @@ namespace Game
         private void ClassCbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ClassCbx.SelectedIndex;
+            StatTbx.Text = "100";
             if (index == 0)
             {
+                Merc.Visibility = Visibility.Visible;
+                Raider.Visibility = Visibility.Collapsed;
+                Atom.Visibility = Visibility.Collapsed;
                 StrengthTb.Text = "30";
                 MaxStrengthTb.Text = "250";
                 AgiltyTb.Text = "15";
@@ -42,18 +46,13 @@ namespace Game
                 EnduranceTb.Text = "25";
                 MaxEnduranceTb.Text = "100";
 
-                HPTbx.Text = (int.Parse(EnduranceTb.Text) * 2 + int.Parse(StrengthTb.Text)).ToString();
-                ManaTbx.Text = (int.Parse(IntelligenceTb.Text)).ToString();
-
-                PDamageTb.Text = StrengthTb.Text;
-                ArmorTb.Text = AgiltyTb.Text;
-                MDamageTb.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 0.2).ToString());
-                MDefenceTb.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 0.5).ToString());
-                CrtChanceTb.Text = (Math.Round(int.Parse(AgiltyTb.Text) * 0.2).ToString());
-                CrtDamageTb.Text = (Math.Round(int.Parse(AgiltyTb.Text) * 0.1)).ToString();
+                Refresh();
             }
             else if (index == 1)
             {
+                Merc.Visibility = Visibility.Collapsed;
+                Raider.Visibility = Visibility.Visible;
+                Atom.Visibility = Visibility.Collapsed;
                 StrengthTb.Text = "20";
                 MaxStrengthTb.Text = "65";
                 AgiltyTb.Text = "30";
@@ -63,18 +62,13 @@ namespace Game
                 EnduranceTb.Text = "20";
                 MaxEnduranceTb.Text = "80";
 
-                HPTbx.Text = (Math.Round(int.Parse(EnduranceTb.Text) * 1.5 + int.Parse(StrengthTb.Text) * 0.5).ToString());
-                ManaTbx.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 1.2).ToString());
-
-                PDamageTb.Text = (Math.Round(int.Parse(StrengthTb.Text) * 0.5 + int.Parse(AgiltyTb.Text) * 0.5).ToString());
-                ArmorTb.Text = (Math.Round(int.Parse(AgiltyTb.Text) * 1.5).ToString());
-                MDamageTb.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 0.2).ToString());
-                MDefenceTb.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 0.5)).ToString();
-                CrtChanceTb.Text = (Math.Round(int.Parse(AgiltyTb.Text) * 0.2).ToString());
-                CrtDamageTb.Text = (Math.Round(int.Parse(AgiltyTb.Text) * 0.1)).ToString();
+                Refresh();
             }
             else if (index == 2)
             {
+                Merc.Visibility = Visibility.Collapsed;
+                Raider.Visibility = Visibility.Collapsed;
+                Atom.Visibility = Visibility.Visible;
                 StrengthTb.Text = "15";
                 MaxStrengthTb.Text = "45";
                 AgiltyTb.Text = "20";
@@ -84,15 +78,7 @@ namespace Game
                 EnduranceTb.Text = "15";
                 MaxEnduranceTb.Text = "70";
 
-                HPTbx.Text = (Math.Round(int.Parse(EnduranceTb.Text) * 1.4 + int.Parse(StrengthTb.Text) * 0.2).ToString());
-                ManaTbx.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 1.5)).ToString();
-
-                PDamageTb.Text = (Math.Round(int.Parse(StrengthTb.Text) * 0.5)).ToString();
-                ArmorTb.Text = AgiltyTb.Text;
-                MDamageTb.Text = IntelligenceTb.Text;
-                MDefenceTb.Text = IntelligenceTb.Text;
-                CrtChanceTb.Text = (Math.Round(int.Parse(AgiltyTb.Text) * 0.2).ToString());
-                CrtDamageTb.Text = (Math.Round(int.Parse(AgiltyTb.Text) * 0.1)).ToString();
+                Refresh();
             }
         }
 
