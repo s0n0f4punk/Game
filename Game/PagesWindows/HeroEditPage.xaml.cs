@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Game
+namespace Game.PagesWindows
 {
     /// <summary>
     /// Логика взаимодействия для HeroEditPage.xaml
@@ -25,13 +24,15 @@ namespace Game
         {
             InitializeComponent();
             NameTbx.Text = "Имя";
-            StatTbx.Text = "100";
+            StatTbx.Text = "0";
+            LevelTbx.Text= "1";
+            ExpTbx.Text = "0";
+            MaxExpTbx.Text = "1000";
         }
 
         private void ClassCbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ClassCbx.SelectedIndex;
-            StatTbx.Text = "100";
             if (index == 0)
             {
                 Merc.Visibility = Visibility.Visible;
@@ -149,68 +150,97 @@ namespace Game
 
         private void PerkPlus_Click(object sender, RoutedEventArgs e)
         {
-            if (ClassCbx.SelectedIndex != -1)
+            if (App.CanUpgrade == true)
             {
-                int stat = int.Parse(StatTbx.Text);
-                int strength = int.Parse(StrengthTb.Text);
-                int agility = int.Parse(AgiltyTb.Text);
-                int intelligence = int.Parse(IntelligenceTb.Text);
-                int endurance = int.Parse(EnduranceTb.Text);
-                if (int.Parse(StatTbx.Text) > 0)
+                if (ClassCbx.SelectedIndex != -1)
                 {
-                    switch (PerkTitleTb.Text)
+                    int stat = int.Parse(StatTbx.Text);
+                    int strength = int.Parse(StrengthTb.Text);
+                    int agility = int.Parse(AgiltyTb.Text);
+                    int intelligence = int.Parse(IntelligenceTb.Text);
+                    int endurance = int.Parse(EnduranceTb.Text);
+                    if (int.Parse(StatTbx.Text) > 0)
                     {
-                        case "Сила":
+                        switch (PerkTitleTb.Text)
                         {
-                            if (strength < int.Parse(MaxStrengthTb.Text))
+                            case "Сила":
                             {
-                                strength++;
-                                stat--;
-                                StatTbx.Text = stat.ToString();
-                                StrengthTb.Text = strength.ToString();
-                                Refresh();
+                                if (strength < int.Parse(MaxStrengthTb.Text))
+                                {
+                                    strength++;
+                                    stat--;
+                                    StatTbx.Text = stat.ToString();
+                                    StrengthTb.Text = strength.ToString();
+                                    Refresh();
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        case "Ловкость":
-                        {
-                            if (agility < int.Parse(MaxAgilityTb.Text))
+                            case "Ловкость":
                             {
-                                agility++;
-                                stat--;
-                                StatTbx.Text = stat.ToString();
-                                AgiltyTb.Text = agility.ToString();
-                                Refresh();
+                                if (agility < int.Parse(MaxAgilityTb.Text))
+                                {
+                                    agility++;
+                                    stat--;
+                                    StatTbx.Text = stat.ToString();
+                                    AgiltyTb.Text = agility.ToString();
+                                    Refresh();
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        case "Интеллект":
-                        {
-                            if (intelligence < int.Parse(MaxIntelligenceTb.Text))
+                            case "Интеллект":
                             {
-                                intelligence++;
-                                stat--;
-                                StatTbx.Text = stat.ToString();
-                                IntelligenceTb.Text = intelligence.ToString();
-                                Refresh();
+                                if (intelligence < int.Parse(MaxIntelligenceTb.Text))
+                                {
+                                    intelligence++;
+                                    stat--;
+                                    StatTbx.Text = stat.ToString();
+                                    IntelligenceTb.Text = intelligence.ToString();
+                                    Refresh();
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        case "Выносливость":
-                        {
-                            if (endurance < int.Parse(MaxEnduranceTb.Text))
+                            case "Выносливость":
                             {
-                                endurance++;
-                                stat--;
-                                StatTbx.Text = stat.ToString();
-                                EnduranceTb.Text = endurance.ToString();
-                                Refresh();
+                                if (endurance < int.Parse(MaxEnduranceTb.Text))
+                                {
+                                    endurance++;
+                                    stat--;
+                                    StatTbx.Text = stat.ToString();
+                                    EnduranceTb.Text = endurance.ToString();
+                                    Refresh();
+                                }
+                                return;
                             }
-                            return;
                         }
                     }
                 }
+            } 
+        }
+        private void SaveButt_Click(object sender, RoutedEventArgs e)
+        {
+            if (ClassCbx.SelectedIndex != -1)
+            {
+                MessageBox.Show("длалщдапщдывбдпав");
+                App.CanUpgrade = true;
+                ClassCbx.IsEnabled = false;
             }
+            else MessageBox.Show("Сначала выберите класс героя!");
+        }
+
+        private void ExpGiveButt_Click(object sender, RoutedEventArgs e)
+        {
+            
+            int CurrentExp = int.Parse(ExpTbx.Text);
+            CurrentExp += 500;
+            if (CurrentExp >= int.Parse(MaxExpTbx.Text))
+            {
+                ExpTbx.Text = (CurrentExp - int.Parse(MaxExpTbx.Text)).ToString();
+                MaxExpTbx.Text = (int.Parse(MaxExpTbx.Text) + 1000).ToString();
+                LevelTbx.Text = (int.Parse(LevelTbx.Text) + 1).ToString();
+                StatTbx.Text = (int.Parse(StatTbx.Text) + 10).ToString();
+                if (LevelTbx.Text == "10") ExpGiveButt.IsEnabled = false;
+            }
+            else ExpTbx.Text = CurrentExp.ToString();
         }
     }
 }
