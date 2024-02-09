@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Game.PagesWindows.WeaponUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Game.PagesWindows"
+             mc:Ignorable="d" 
+             d:DesignHeight="90" d:DesignWidth="90">
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop x:Name="Color1" Color="#AFFF5200" Offset="1"/>
+                <GradientStop x:Name="Color2" Color="#7FFBC44C"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <!--<Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop x:Name="Color1" Color="#990084FF" Offset="1"/>
+                <GradientStop x:Name="Color2" Color="#5974F4FD"/>
+            </RadialGradientBrush>
+        </Grid.Background>-->
+        <!--<Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop x:Name="Color1" Color="#7F37FF00" Offset="1"/>
+                <GradientStop x:Name="Color2" Color="#33B2FF7F"/>
+            </RadialGradientBrush>
+        </Grid.Background>-->
+        <Image x:Name="Image" Source="/Resources/Nuka-Shredder.png"/>
+    </Grid>
+</UserControl>

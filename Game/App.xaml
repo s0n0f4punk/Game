@@ -17,7 +17,6 @@
             <Setter Property="Margin" Value="0 10"></Setter>
             <Setter Property="FontFamily" Value="Courier New"></Setter>
             <Setter Property="Foreground" Value="#FF18C300"></Setter>
-            <Setter Property="Background" Value="Aqua"></Setter>
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="0 10"></Setter>
@@ -28,6 +27,7 @@
         <Style TargetType="Button">
             <Setter Property="Background" Value="#FF7B1100"></Setter>
             <Setter Property="BorderBrush" Value="#FF905C00"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
         </Style>
     </Application.Resources>
 </Application>

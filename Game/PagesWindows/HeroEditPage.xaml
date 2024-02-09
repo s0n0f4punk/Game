@@ -106,7 +106,7 @@
                     </StackPanel>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Button x:Name="PerkPlus" Height="40" Width="100" Click="PerkPlus_Click" Cursor="Hand" Margin="5 0">
+                            <Button x:Name="PerkPlus" Height="40" Width="100" Click="PerkPlus_Click" Margin="5 0">
                                 <TextBlock FontSize="16" Foreground="White" >Прокачать</TextBlock>
                             </Button>
                             <TextBlock x:Name="PerkTitleTb" FontSize="16"></TextBlock>
@@ -151,11 +151,17 @@
                         <TextBlock FontSize="16">Крит. урон:</TextBlock>
                         <TextBlock x:Name="CrtDamageTb" Width="50" TextAlignment="Center"></TextBlock>
                     </StackPanel>
-                <Button x:Name="ExpGiveButt" Click="ExpGiveButt_Click">
+                <Button x:Name="ExpGiveButt" Click="ExpGiveButt_Click" Margin="5">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>
                     </Button.Effect>
                     <TextBlock FontSize="16" Foreground="White">Добавить 500 опыта</TextBlock>
+                </Button>
+                <Button x:Name="EquipButt" Click="EqiipButt_Click" Margin="5">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>
+                    </Button.Effect>
+                    <TextBlock FontSize="16" Foreground="White">Инвентарь</TextBlock>
                 </Button>
             </StackPanel>
             </Border>
@@ -179,7 +185,7 @@
                 </Grid>
                 <Button x:Name="SaveButt" Margin="10 45" Click="SaveButt_Click">
                     <Button.Effect>
-                        <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>
+                        <DropShadowEffect BlurRadius="2" ShadowDepth="1"/>
                     </Button.Effect>
                     <TextBlock FontSize="16" Foreground="White">Сохранить</TextBlock>
                 </Button>
