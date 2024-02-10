@@ -6,26 +6,10 @@
              xmlns:local="clr-namespace:Game.PagesWindows"
              mc:Ignorable="d" 
              d:DesignHeight="90" d:DesignWidth="90">
-    <Grid Height="90" Width="90" Margin="5">
-        <Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop x:Name="Color1" Color="#AFFF5200" Offset="1"/>
-                <GradientStop x:Name="Color2" Color="#7FFBC44C"/>
-            </RadialGradientBrush>
-        </Grid.Background>
-        <!--<Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop x:Name="Color1" Color="#990084FF" Offset="1"/>
-                <GradientStop x:Name="Color2" Color="#5974F4FD"/>
-            </RadialGradientBrush>
-        </Grid.Background>-->
-        <!--<Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop x:Name="Color1" Color="#7F37FF00" Offset="1"/>
-                <GradientStop x:Name="Color2" Color="#33B2FF7F"/>
-            </RadialGradientBrush>
-        </Grid.Background>-->
-        <Image x:Name="Image" Source="/Resources/Nuka-Shredder.png"/>
+    <Grid Height="90" Width="90" Margin="5" Name="Grid">
+        <Image x:Name="Image" Source="/Resources/Nuka-Shredder.png" Width="100"/>
+        <TextBlock Visibility="Collapsed" x:Name="CorX"></TextBlock>
+        <TextBlock Visibility="Collapsed" x:Name="CorY"></TextBlock>
         <TextBlock x:Name="GunType" VerticalAlignment="Bottom">Прикол</TextBlock>
     </Grid>
 </UserControl>

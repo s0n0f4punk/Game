@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="Inventory" Height="640" Width="440">
     <Canvas x:Name="InvCns" Background="#FF2F2F2F" Height="640" Width="440" PreviewMouseMove="InvCns_PreviewMouseMove" PreviewMouseUp="InvCns_PreviewMouseUp">
-        <WrapPanel x:Name="WeaponsWP" Height="600" Width="300" Canvas.Left="120"/>
+        <Canvas x:Name="SlotCns" Width="120" Height="640" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Rectangle x:Name="Slot1" Width="100" Height="100" Margin="5 5 5 15" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
+                <Rectangle x:Name="Slot2" Width="100" Height="100" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
+            </StackPanel>
+        </Canvas>
     </Canvas>
 </Window>

@@ -23,48 +23,39 @@ namespace Game.PagesWindows
         public Inventory()
         {
             InitializeComponent();
-            Ellipse userCTRL = new Ellipse();
-            userCTRL.Fill = Brushes.Azure;
-            userCTRL.Width = 100;
-            userCTRL.Height = 100;
-            Canvas.SetTop(userCTRL, 20);
-            Canvas.SetLeft(userCTRL, 20);
-            userCTRL.PreviewMouseDown += Weapon_PreviewMouseDown;
-            InvCns.Children.Add(userCTRL);
 
             List<Weapon> guns = new List<Weapon>()
             {
-                new Weapon("GammaGun", "Common"),
-                new Weapon("GammaGun", "Rare"),
-                new Weapon("GammaGun", "Legendary"),
-                new Weapon("CrowAxe", "Common"),
-                new Weapon("CrowAxe", "Rare"),
-                new Weapon("CrowAxe", "Legendary"),
-                new Weapon("Ripper", "Common"),
-                new Weapon("Ripper", "Rare"),
-                new Weapon("Ripper", "Legendary"),
-                new Weapon("ShishKebab", "Common"),
-                new Weapon("ShishKebab", "Rare"),
-                new Weapon("ShishKebab", "Legendary"),
-                new Weapon("SuperHammer", "Common"),
-                new Weapon("SuperHammer", "Rare"),
-                new Weapon("SuperHammer", "Legendary"),
-                new Weapon("NukaShredder", "Common"),
-                new Weapon("NukaShredder", "Rare"),
-                new Weapon("NukaShredder", "Legendary"),
+                new Weapon("GammaGun", "Common", new System.Drawing.Point(120, 0)),
+                new Weapon("GammaGun", "Rare", new System.Drawing.Point(220, 0) ),
+                new Weapon("GammaGun", "Legendary", new System.Drawing.Point(320, 0)),
+                new Weapon("CrowAxe", "Common", new System.Drawing.Point(120, 100)),
+                new Weapon("CrowAxe", "Rare", new System.Drawing.Point(220, 100)),
+                new Weapon("CrowAxe", "Legendary", new System.Drawing.Point(320, 100)),
+                new Weapon("Ripper", "Common", new System.Drawing.Point(120, 200)),
+                new Weapon("Ripper", "Rare", new System.Drawing.Point(220, 200)),
+                new Weapon("Ripper", "Legendary", new System.Drawing.Point(320, 200)),
+                new Weapon("ShishKebab", "Common", new System.Drawing.Point(120, 300)),
+                new Weapon("ShishKebab", "Rare", new System.Drawing.Point(220, 300)),
+                new Weapon("ShishKebab", "Legendary", new System.Drawing.Point(320, 300)),
+                new Weapon("SuperHammer", "Common", new System.Drawing.Point(120, 400)),
+                new Weapon("SuperHammer", "Rare", new System.Drawing.Point(220, 400)),
+                new Weapon("SuperHammer", "Legendary", new System.Drawing.Point(320, 400)),
+                new Weapon("NukaShredder", "Common", new System.Drawing.Point(120, 500)),
+                new Weapon("NukaShredder", "Rare", new System.Drawing.Point(220, 500)),
+                new Weapon("NukaShredder", "Legendary", new System.Drawing.Point(320, 500)),
             };
             foreach (Weapon gun in guns)
             {
-                WeaponsWP.Children.Add(new WeaponUC(gun));
+                var gandon = new WeaponUC(gun);
+                Canvas.SetTop(gandon, gun.Cor.Y);
+                Canvas.SetLeft(gandon, gun.Cor.X);
+                InvCns.Children.Add(gandon);
+                gandon.PreviewMouseDown += Weapon_PreviewMouseDown;
             }
-
-           
-            
         }
         UIElement dragObject = null;
         Point offset;
-        WeaponUC newCtrl;
-        newCtrl = Activator.CreateInstance()
 
         private void Weapon_PreviewMouseDown(object sender, MouseEventArgs e)
         {
@@ -85,8 +76,24 @@ namespace Game.PagesWindows
 
         private void InvCns_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            this.dragObject = null;
-            this.InvCns.ReleaseMouseCapture();
+            if (this.dragObject != null)
+            {
+                WeaponUC weapon = this.dragObject as WeaponUC;
+                var Position = e.GetPosition(sender as IInputElement);
+                MessageBox.Show(Position.X.ToString());   
+                if (Position.X < 120)
+                {
+                    Canvas.SetTop(this.dragObject, 5);
+                    Canvas.SetLeft(this.dragObject, 5);
+                }
+                else
+                {
+                    Canvas.SetTop(this.dragObject, double.Parse(weapon.CorY.Text));
+                    Canvas.SetLeft(this.dragObject, double.Parse(weapon.CorX.Text));
+                }
+                this.dragObject = null;
+                this.InvCns.ReleaseMouseCapture();
+            }   
         }
     }
 }
