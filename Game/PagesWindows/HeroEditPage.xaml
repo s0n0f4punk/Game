@@ -157,7 +157,7 @@
                     </Button.Effect>
                     <TextBlock FontSize="16" Foreground="White">Добавить 500 опыта</TextBlock>
                 </Button>
-                <Button x:Name="EquipButt" Click="EqiipButt_Click" Margin="5">
+                <Button x:Name="EquipButt" Click="EquipButt_Click" Margin="5">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>
                     </Button.Effect>

@@ -135,22 +135,22 @@
     <Resource Include="Resources\bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Gamma gun.png" />
+    <Resource Include="Resources\Gamma gun.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Crow-Axe.png" />
+    <Resource Include="Resources\Crow-Axe.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Ripper.png" />
+    <Resource Include="Resources\Ripper.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Shish-Kebab.png" />
+    <Resource Include="Resources\Shish-Kebab.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Super-Hammer.png" />
+    <Resource Include="Resources\Super-Hammer.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Nuka-Shredder.png" />
+    <Resource Include="Resources\Nuka-Shredder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

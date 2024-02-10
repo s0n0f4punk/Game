@@ -26,7 +26,7 @@ namespace Game.PagesWindows
         {
             InitializeComponent();
             weapon = _weapon;
-
+            GunType.Text = _weapon.Type;
         }
     }
 }

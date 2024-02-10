@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Game.PagesWindows"
              mc:Ignorable="d" 
              d:DesignHeight="90" d:DesignWidth="90">
-    <Grid>
+    <Grid Height="90" Width="90" Margin="5">
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop x:Name="Color1" Color="#AFFF5200" Offset="1"/>
@@ -26,5 +26,6 @@
             </RadialGradientBrush>
         </Grid.Background>-->
         <Image x:Name="Image" Source="/Resources/Nuka-Shredder.png"/>
+        <TextBlock x:Name="GunType" VerticalAlignment="Bottom">Прикол</TextBlock>
     </Grid>
 </UserControl>

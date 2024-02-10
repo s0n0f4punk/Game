@@ -259,7 +259,7 @@ namespace Game.PagesWindows
             
         }
 
-        private void EqiipButt_Click(object sender, RoutedEventArgs e)
+        private void EquipButt_Click(object sender, RoutedEventArgs e)
         {
             Window inventory = new Inventory();
             inventory.Show();

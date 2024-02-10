@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game.PagesWindows"
         mc:Ignorable="d"
-        Title="Inventory" Height="600" Width="440">
-    <Canvas x:Name="InvCns" Background="#FF2F2F2F" Height="600" Width="440" PreviewMouseMove="InvCns_PreviewMouseMove" PreviewMouseUp="InvCns_PreviewMouseUp">
-        <WrapPanel x:Name="WeaponsWP" Height="600" Width="300" Canvas.Left="140"/>
+        Title="Inventory" Height="640" Width="440">
+    <Canvas x:Name="InvCns" Background="#FF2F2F2F" Height="640" Width="440" PreviewMouseMove="InvCns_PreviewMouseMove" PreviewMouseUp="InvCns_PreviewMouseUp">
+        <WrapPanel x:Name="WeaponsWP" Height="600" Width="300" Canvas.Left="120"/>
     </Canvas>
 </Window>

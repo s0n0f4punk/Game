@@ -23,6 +23,15 @@ namespace Game.PagesWindows
         public Inventory()
         {
             InitializeComponent();
+            Ellipse userCTRL = new Ellipse();
+            userCTRL.Fill = Brushes.Azure;
+            userCTRL.Width = 100;
+            userCTRL.Height = 100;
+            Canvas.SetTop(userCTRL, 20);
+            Canvas.SetLeft(userCTRL, 20);
+            userCTRL.PreviewMouseDown += Weapon_PreviewMouseDown;
+            InvCns.Children.Add(userCTRL);
+
             List<Weapon> guns = new List<Weapon>()
             {
                 new Weapon("GammaGun", "Common"),
@@ -48,16 +57,36 @@ namespace Game.PagesWindows
             {
                 WeaponsWP.Children.Add(new WeaponUC(gun));
             }
+
+           
+            
+        }
+        UIElement dragObject = null;
+        Point offset;
+        WeaponUC newCtrl;
+        newCtrl = Activator.CreateInstance()
+
+        private void Weapon_PreviewMouseDown(object sender, MouseEventArgs e)
+        {
+            this.dragObject = sender as UIElement;
+            this.offset = e.GetPosition(this.InvCns);
+            this.offset.Y -= Canvas.GetTop(this.dragObject);
+            this.offset.X -= Canvas.GetLeft(this.dragObject);
+            this.InvCns.CaptureMouse();
         }
 
         private void InvCns_PreviewMouseMove(object sender, MouseEventArgs e)
         {
-
+            if (this.dragObject == null) return;
+            var position = e.GetPosition(sender as IInputElement);
+            Canvas.SetTop(this.dragObject, position.Y - this.offset.Y);
+            Canvas.SetLeft(this.dragObject, position.X - this.offset.X);
         }
 
         private void InvCns_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            this.dragObject = null;
+            this.InvCns.ReleaseMouseCapture();
         }
     }
 }
