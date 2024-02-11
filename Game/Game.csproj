@@ -135,22 +135,28 @@
     <Resource Include="Resources\bg.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Nuka-Shredder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Shish-Kebab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ripper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Super-Hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\Gamma gun.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Crow-Axe.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Ripper.png" />
+    <Resource Include="Resources\Cross.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Shish-Kebab.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Super-Hammer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Nuka-Shredder.png" />
+    <Resource Include="Resources\Shield.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

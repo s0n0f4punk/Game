@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Game.PagesWindows"
              mc:Ignorable="d" 
-             d:DesignHeight="90" d:DesignWidth="90">
-    <Grid Height="90" Width="90" Margin="5" Name="Grid">
-        <Image x:Name="Image" Source="/Resources/Nuka-Shredder.png" Width="100"/>
+             d:DesignHeight="115" d:DesignWidth="115">
+    <Grid Height="115" Width="115" Margin="2.5" Name="Grid" Cursor="Hand">
+        <Image x:Name="Image" Source="/Resources/Shish-Kebab.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="Uniform"/>
         <TextBlock Visibility="Collapsed" x:Name="CorX"></TextBlock>
         <TextBlock Visibility="Collapsed" x:Name="CorY"></TextBlock>
-        <TextBlock x:Name="GunType" VerticalAlignment="Bottom">Прикол</TextBlock>
+        <TextBlock Visibility="Collapsed" x:Name="Type"></TextBlock>
+        <TextBlock Visibility="Collapsed" x:Name="Rarity"></TextBlock>
     </Grid>
 </UserControl>

@@ -83,6 +83,16 @@ namespace Game.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cross {
+            get {
+                object obj = ResourceManager.GetObject("Cross", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Crow_Axe {
             get {
                 object obj = ResourceManager.GetObject("Crow_Axe", resourceCulture);
@@ -146,6 +156,16 @@ namespace Game.Properties {
         internal static System.Drawing.Bitmap Ripper {
             get {
                 object obj = ResourceManager.GetObject("Ripper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shield {
+            get {
+                object obj = ResourceManager.GetObject("Shield", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
