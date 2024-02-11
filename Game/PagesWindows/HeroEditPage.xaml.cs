@@ -261,8 +261,12 @@ namespace Game.PagesWindows
 
         private void EquipButt_Click(object sender, RoutedEventArgs e)
         {
-            Window inventory = new Inventory();
-            inventory.Show();
+            if (App.CanUpgrade == true)
+            {
+                Window inventory = new Inventory();
+                inventory.Show();
+            }
+            else MessageBox.Show("Сначала выберите класс героя и нажмите сохранить!");
         }
     }
 }
