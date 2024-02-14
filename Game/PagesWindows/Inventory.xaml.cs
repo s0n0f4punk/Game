@@ -139,14 +139,15 @@ namespace Game.PagesWindows
                     isSecSlotBusy = true;
                 }
 
-                if (!isSecSlotBusy && Position.X < 120 && Position.Y > 120 && Position.Y < 260 && weapon.Type.Text == "CrowAxe")
+                if (!isSecSlotBusy && Position.X < 120 && Position.Y > 120 && Position.Y < 260 && weapon.Type.Text == "CrowAxe" && secWeapon == null)
                 {
+                    isSecSlotBusy = true;
                     secWeapon = this.dragObject as WeaponUC;
                     Canvas.SetTop(this.dragObject, 145);
                     Canvas.SetLeft(this.dragObject, 5);
                     selWeapon2 = guns.Find(x => x.Type == weapon.Type.Text && x.Rarity == weapon.Rarity.Text);
                 }
-                else if (secWeapon != null && isSecSlotBusy)
+                else if (secWeapon != null && !isSecSlotBusy)
                 {
                     Canvas.SetTop(secWeapon, double.Parse(secWeapon.CorY.Text));
                     Canvas.SetLeft(secWeapon, double.Parse(secWeapon.CorX.Text));
@@ -154,10 +155,14 @@ namespace Game.PagesWindows
                     secWeapon = null;
                 }
 
-
                 this.dragObject = null;
                 this.InvCns.ReleaseMouseCapture();
             }   
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.heroEditPage.WeaponCheck(selWeapon1,selWeapon2);
         }
     }
 }

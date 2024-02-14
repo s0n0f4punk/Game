@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.PagesWindows;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Game
     /// </summary>
     public partial class App : Application
     {
-        public static bool CanUpgrade = false; 
+        public static bool CanUpgrade = false;
+        public static HeroEditPage heroEditPage = new HeroEditPage();
     }
 }

@@ -84,7 +84,7 @@
                     </StackPanel>
                     <StackPanel MouseLeftButtonUp="StackPanel_MouseLeftButtonUp_1" Margin="15 1" Orientation="Horizontal" HorizontalAlignment="Center" Cursor="Hand">
                         <TextBlock FontSize="16">ЛВ:</TextBlock>
-                        <TextBlock x:Name="AgiltyTb" Width="50" TextAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="AgilityTb" Width="50" TextAlignment="Center"></TextBlock>
                         <TextBlock FontSize="16">/</TextBlock>
                         <TextBlock x:Name="MaxAgilityTb" Width="50" TextAlignment="Center" ></TextBlock>
                     </StackPanel>
