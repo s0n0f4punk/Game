@@ -16,5 +16,8 @@ namespace Game
     {
         public static bool CanUpgrade = false;
         public static HeroEditPage heroEditPage = new HeroEditPage();
+        public static Random rnd = new Random();
+        public static List<double> StatBonus = new List<double>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        public static List<double> Stats = new List<double>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     }
 }

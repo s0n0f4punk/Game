@@ -78,7 +78,7 @@
                 <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Margin="2">
                     <StackPanel MouseLeftButtonUp="StackPanel_MouseLeftButtonUp" Margin="15 1" Orientation="Horizontal" HorizontalAlignment="Center" Cursor="Hand">
                         <TextBlock FontSize="16">СЛ:</TextBlock>
-                        <TextBlock x:Name="StrengthTb" Width="50" TextAlignment="Center" ></TextBlock>
+                        <TextBlock x:Name="StrengthTb" Width="50" TextAlignment="Center"></TextBlock>
                         <TextBlock FontSize="16">/</TextBlock>
                         <TextBlock x:Name="MaxStrengthTb" Width="50" TextAlignment="Center" ></TextBlock>
                     </StackPanel>

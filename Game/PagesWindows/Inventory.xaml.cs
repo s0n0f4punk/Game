@@ -162,6 +162,7 @@ namespace Game.PagesWindows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
             App.heroEditPage.WeaponCheck(selWeapon1,selWeapon2);
         }
     }

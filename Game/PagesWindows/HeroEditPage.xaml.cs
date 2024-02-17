@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +26,8 @@ namespace Game.PagesWindows
     {
         public Weapon selWeapon1;
         public Weapon selWeapon2;
-        public List<double> StatBonus = new List<double>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        public int ClassIndex = -1;
+       
         public HeroEditPage()
         {
             InitializeComponent();
@@ -37,110 +40,116 @@ namespace Game.PagesWindows
 
         private void ClassCbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = ClassCbx.SelectedIndex;
-            if (index == 0)
+            ClassIndex = ClassCbx.SelectedIndex;
+            
+            if (ClassIndex == 0)
             {
                 Merc.Visibility = Visibility.Visible;
                 Raider.Visibility = Visibility.Collapsed;
                 Atom.Visibility = Visibility.Collapsed;
-                StrengthTb.Text = "30";
+                // StrengthTb.Text = "30";
+                App.Stats[0] = 30;
                 MaxStrengthTb.Text = "250";
-                AgilityTb.Text = "15";
+                App.Stats[1] = 15;
                 MaxAgilityTb.Text = "80";
-                IntelligenceTb.Text = "10";
+                App.Stats[2] = 10;
                 MaxIntelligenceTb.Text = "50";
-                EnduranceTb.Text = "25";
+                App.Stats[3] = 25;
                 MaxEnduranceTb.Text = "100";
-
-                Refresh();
             }
-            else if (index == 1)
+            else if (ClassIndex == 1)
             {
                 Merc.Visibility = Visibility.Collapsed;
                 Raider.Visibility = Visibility.Visible;
                 Atom.Visibility = Visibility.Collapsed;
-                StrengthTb.Text = "20";
+                App.Stats[0] = 20;
                 MaxStrengthTb.Text = "65";
-                AgilityTb.Text = "30";
+                App.Stats[1] = 30;
                 MaxAgilityTb.Text = "250";
-                IntelligenceTb.Text = "15";
+                App.Stats[2] = 15;
                 MaxIntelligenceTb.Text = "70";
-                EnduranceTb.Text = "20";
+                App.Stats[3] = 20;
                 MaxEnduranceTb.Text = "80";
-
-                Refresh();
             }
-            else if (index == 2)
+            else if (ClassIndex == 2)
             {
                 Merc.Visibility = Visibility.Collapsed;
                 Raider.Visibility = Visibility.Collapsed;
                 Atom.Visibility = Visibility.Visible;
-                StrengthTb.Text = "15";
+                App.Stats[0] = 15;
                 MaxStrengthTb.Text = "45";
-                AgilityTb.Text = "20";
+                App.Stats[1] = 20;
                 MaxAgilityTb.Text = "80";
-                IntelligenceTb.Text = "35";
+                App.Stats[2] = 35;
                 MaxIntelligenceTb.Text = "250";
-                EnduranceTb.Text = "15";
+                App.Stats[3] = 15;
                 MaxEnduranceTb.Text = "70";
-
-                Refresh();
             }
+            Refresh();
         }
 
         public void Refresh()
-        {
-            int index = ClassCbx.SelectedIndex;
-            if (index == 0)
+        { 
+            App.heroEditPage = this;
+            if (ClassIndex == 0)
             {
-                StrengthTb.Text = (int.Parse(StrengthTb.Text) + StatBonus[0]).ToString();
-                AgilityTb.Text = (int.Parse(AgilityTb.Text) + StatBonus[1]).ToString();
-                IntelligenceTb.Text = (int.Parse(IntelligenceTb.Text) + StatBonus[2]).ToString();
-                EnduranceTb.Text = (int.Parse(EnduranceTb.Text) + StatBonus[3]).ToString();
+                StrengthTb.Text = (App.Stats[0] + App.StatBonus[0]).ToString();
+                AgilityTb.Text = (App.Stats[1] + App.StatBonus[1]).ToString();
+                IntelligenceTb.Text = (App.Stats[2] + App.StatBonus[2]).ToString();
+                EnduranceTb.Text = (App.Stats[3] + App.StatBonus[3]).ToString();
 
-                HPTbx.Text = (int.Parse(EnduranceTb.Text) * 2 + int.Parse(StrengthTb.Text) + StatBonus[4]).ToString();
-                ManaTbx.Text = (int.Parse(IntelligenceTb.Text) + StatBonus[5]).ToString();
+                HPTbx.Text = (App.Stats[4] + App.Stats[3] * 2 + App.Stats[0] + App.StatBonus[4]).ToString();
+                ManaTbx.Text = (App.Stats[5] + App.Stats[2] + App.StatBonus[5]).ToString();
 
-                PDamageTb.Text = (int.Parse(StrengthTb.Text) + StatBonus[6]).ToString();
-                ArmorTb.Text = (int.Parse(AgilityTb.Text) + StatBonus[7]).ToString();
-                MDamageTb.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 0.2 + StatBonus[8]).ToString());
-                MDefenceTb.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 0.5 + StatBonus[9]).ToString());
-                CrtChanceTb.Text = (Math.Round(int.Parse(AgilityTb.Text) * 0.2 + StatBonus[10]).ToString());
-                CrtDamageTb.Text = (Math.Round(int.Parse(AgilityTb.Text) * 0.1) + StatBonus[11]).ToString();
+                PDamageTb.Text = (App.Stats[6] + App.Stats[0] + App.StatBonus[6]).ToString();
+                ArmorTb.Text = (App.Stats[7] + App.Stats[1] + App.StatBonus[7]).ToString();
+                MDamageTb.Text = (App.Stats[8] + (Math.Round(App.Stats[2] * 0.2) + App.StatBonus[8])).ToString();
+                MDefenceTb.Text = (App.Stats[9] + (Math.Round(App.Stats[2] * 0.5) + App.StatBonus[9])).ToString();
+               
+                CrtChanceTb.Text = (App.Stats[10] + (Math.Round(App.Stats[1] * 0.2) + App.StatBonus[10])).ToString();
+                CrtDamageTb.Text = (App.Stats[11] + (Math.Round(App.Stats[1] * 0.1) + App.StatBonus[11])).ToString(); 
             }
-            else if (index == 1)
+            else if (ClassIndex == 1)
             {
-                StrengthTb.Text = (int.Parse(StrengthTb.Text) + StatBonus[0]).ToString();
-                AgilityTb.Text = (int.Parse(AgilityTb.Text) + StatBonus[1]).ToString();
-                IntelligenceTb.Text = (int.Parse(IntelligenceTb.Text) + StatBonus[2]).ToString();
-                EnduranceTb.Text = (int.Parse(EnduranceTb.Text) + StatBonus[3]).ToString();
+                StrengthTb.Text = (App.Stats[0] + App.StatBonus[0]).ToString();
+                AgilityTb.Text = (App.Stats[1] + App.StatBonus[1]).ToString();
+                IntelligenceTb.Text = (App.Stats[2] + App.StatBonus[2]).ToString();
+                EnduranceTb.Text = (App.Stats[3] + App.StatBonus[3]).ToString();
 
-                HPTbx.Text = (Math.Round(int.Parse(EnduranceTb.Text) * 1.5 + int.Parse(StrengthTb.Text) * 0.5 + StatBonus[4]).ToString());
-                ManaTbx.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 1.2 + StatBonus[5]).ToString());
+                HPTbx.Text = (Math.Round(App.Stats[4] * 1.5 + App.Stats[0] * 0.5 + App.StatBonus[4]).ToString());
+                ManaTbx.Text = (Math.Round(App.Stats[5] * 1.2 + App.StatBonus[5]).ToString());
 
-                PDamageTb.Text = (Math.Round(int.Parse(StrengthTb.Text) * 0.5 + int.Parse(AgilityTb.Text) * 0.5 + StatBonus[6]).ToString());
-                ArmorTb.Text = (Math.Round(int.Parse(AgilityTb.Text) * 1.5 + StatBonus[7] ).ToString());
-                MDamageTb.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 0.2 + StatBonus[8]).ToString());
-                MDefenceTb.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 0.5 + StatBonus[9])).ToString();
-                CrtChanceTb.Text = (Math.Round(int.Parse(AgilityTb.Text) * 0.2 + StatBonus[10]).ToString());
-                CrtDamageTb.Text = (Math.Round(int.Parse(AgilityTb.Text) * 0.1) + StatBonus[11]).ToString();
+                PDamageTb.Text = (Math.Round(App.Stats[0] * 0.5 + App.Stats[1] * 0.5 + App.StatBonus[6]).ToString());
+                ArmorTb.Text = (Math.Round(App.Stats[1] * 1.5 + App.StatBonus[7] ).ToString());
+                MDamageTb.Text = (Math.Round(App.Stats[2] * 0.2 + App.StatBonus[8]).ToString());
+                MDefenceTb.Text = (Math.Round(App.Stats[2] * 0.5 + App.StatBonus[9])).ToString();
+                CrtChanceTb.Text = (Math.Round(App.Stats[1] * 0.2 + App.StatBonus[10]).ToString());
+                CrtDamageTb.Text = (Math.Round(App.Stats[1] * 0.1) + App.StatBonus[11]).ToString();
             }
-            else if (index == 2)
+            else if (ClassIndex == 2)
             {
-                StrengthTb.Text = (int.Parse(StrengthTb.Text) + StatBonus[0]).ToString();
-                AgilityTb.Text = (int.Parse(AgilityTb.Text) + StatBonus[1]).ToString();
-                IntelligenceTb.Text = (int.Parse(IntelligenceTb.Text) + StatBonus[2]).ToString();
-                EnduranceTb.Text = (int.Parse(EnduranceTb.Text) + StatBonus[3]).ToString();
+                StrengthTb.Text = (App.Stats[0] + App.StatBonus[0]).ToString();
+                AgilityTb.Text = (App.Stats[1] + App.StatBonus[1]).ToString();
+                IntelligenceTb.Text = (App.Stats[2] + App.StatBonus[2]).ToString();
+                EnduranceTb.Text = (App.Stats[3] + App.StatBonus[3]).ToString();
 
-                HPTbx.Text = (Math.Round(int.Parse(EnduranceTb.Text) * 1.4 + int.Parse(StrengthTb.Text) * 0.2 + StatBonus[4]).ToString());
-                ManaTbx.Text = (Math.Round(int.Parse(IntelligenceTb.Text) * 1.5) + StatBonus[5]).ToString();
+                HPTbx.Text = (Math.Round(App.Stats[3] * 1.4 + App.Stats[0] * 0.2 + App.StatBonus[4]).ToString());
+                ManaTbx.Text = (Math.Round(App.Stats[2] * 1.5) + App.StatBonus[5]).ToString();
 
-                PDamageTb.Text = (Math.Round(int.Parse(StrengthTb.Text) * 0.5) + StatBonus[6]).ToString();
-                ArmorTb.Text = (int.Parse(AgilityTb.Text) + StatBonus[7]).ToString();
-                MDamageTb.Text = (int.Parse(IntelligenceTb.Text + StatBonus[8])).ToString();
-                MDefenceTb.Text = (int.Parse(IntelligenceTb.Text + StatBonus[9])).ToString();
-                CrtChanceTb.Text = (Math.Round(int.Parse(   AgilityTb.Text) * 0.2 + StatBonus[10]).ToString());
-                CrtDamageTb.Text = (Math.Round(int.Parse(AgilityTb.Text) * 0.1) + StatBonus[11]).ToString();
+                PDamageTb.Text = (Math.Round(App.Stats[0] * 0.5) + App.StatBonus[6]).ToString();
+                ArmorTb.Text = (App.Stats[1] + App.StatBonus[7]).ToString();
+                MDamageTb.Text = ((App.Stats[2] + App.StatBonus[8])).ToString();
+                MDefenceTb.Text = ((App.Stats[2] + App.StatBonus[9])).ToString();
+                CrtChanceTb.Text = (Math.Round(App.Stats[1] * 0.2 + App.StatBonus[10]).ToString());
+                CrtDamageTb.Text = (Math.Round(App.Stats[1] * 0.1) + App.StatBonus[11]).ToString();
+            }
+            if (selWeapon1 != null)
+            {
+                if (selWeapon1.Type == "NukaShredder")
+                {
+                    CrtChanceTb.Text = "0";
+                    CrtDamageTb.Text = "0";
+                }
             }
         }
 
@@ -172,78 +181,67 @@ namespace Game.PagesWindows
         {
             if (App.CanUpgrade == true)
             {
-                if (ClassCbx.SelectedIndex != -1)
+                int stat = int.Parse(StatTbx.Text);
+                if (int.Parse(StatTbx.Text) > 0)
                 {
-                    int stat = int.Parse(StatTbx.Text);
-                    int strength = int.Parse(StrengthTb.Text);
-                    int agility = int.Parse(AgilityTb.Text);
-                    int intelligence = int.Parse(IntelligenceTb.Text);
-                    int endurance = int.Parse(EnduranceTb.Text);
-                    if (int.Parse(StatTbx.Text) > 0)
+                    switch (PerkTitleTb.Text)
                     {
-                        switch (PerkTitleTb.Text)
-                        {
-                            case "Сила":
+                        case "Сила":
+                            {
+                                if (App.Stats[0] < int.Parse(MaxStrengthTb.Text))
                                 {
-                                    if (strength < int.Parse(MaxStrengthTb.Text))
-                                    {
-                                        strength++;
-                                        stat--;
-                                        StatTbx.Text = stat.ToString();
-                                        StrengthTb.Text = strength.ToString();
-                                        Refresh();
-                                    }
-                                    else MessageBox.Show("Навык максимальный!");
-                                    return;
+                                    App.Stats[0]++;
+                                    stat--;
+                                    StatTbx.Text = stat.ToString();
+                                    Refresh();
                                 }
-                            case "Ловкость":
+                                else MessageBox.Show("Навык максимальный!");
+                                return;
+                            }
+                        case "Ловкость":
+                            {
+                                if (App.Stats[1] < int.Parse(MaxAgilityTb.Text))
                                 {
-                                    if (agility < int.Parse(MaxAgilityTb.Text))
-                                    {
-                                        agility++;
-                                        stat--;
-                                        StatTbx.Text = stat.ToString();
-                                        AgilityTb.Text = agility.ToString();
-                                        Refresh();
-                                    }
-                                    else MessageBox.Show("Навык максимальный!");
-                                    return;
+                                    App.Stats[1]++;
+                                    stat--;
+                                    StatTbx.Text = stat.ToString();
+                                    Refresh();
                                 }
-                            case "Интеллект":
+                                else MessageBox.Show("Навык максимальный!");
+                                return;
+                            }
+                        case "Интеллект":
+                            {
+                                if (App.Stats[2] < int.Parse(MaxIntelligenceTb.Text))
                                 {
-                                    if (intelligence < int.Parse(MaxIntelligenceTb.Text))
-                                    {
-                                        intelligence++;
-                                        stat--;
-                                        StatTbx.Text = stat.ToString();
-                                        IntelligenceTb.Text = intelligence.ToString();
-                                        Refresh();
-                                    }
-                                    else MessageBox.Show("Навык максимальный!");
-                                    return;
+                                    App.Stats[2]++;
+                                    stat--;
+                                    StatTbx.Text = stat.ToString();
+                                    Refresh();
                                 }
-                            case "Выносливость":
+                                else MessageBox.Show("Навык максимальный!");
+                                return;
+                            }
+                        case "Выносливость":
+                            {
+                                if (App.Stats[3] < int.Parse(MaxEnduranceTb.Text))
                                 {
-                                    if (endurance < int.Parse(MaxEnduranceTb.Text))
-                                    {
-                                        endurance++;
-                                        stat--;
-                                        StatTbx.Text = stat.ToString();
-                                        EnduranceTb.Text = endurance.ToString();
-                                        Refresh();
-                                    }
-                                    else MessageBox.Show("Навык максимальный!");
-                                    return;
+                                    App.Stats[3]++;
+                                    stat--;
+                                    StatTbx.Text = stat.ToString();
+                                    Refresh();
                                 }
-                            default: 
-                                { 
-                                    MessageBox.Show("Cначала выберите навык! ");
-                                    break;
-                                }
-                        }
+                                else MessageBox.Show("Навык максимальный!");
+                                return;
+                            }
+                        default: 
+                            { 
+                                MessageBox.Show("Cначала выберите навык! ");
+                                break;
+                            }
                     }
-                    else MessageBox.Show("Нет свободных очков навыка. ");
                 }
+                else MessageBox.Show("Нет свободных очков навыка. ");
             }
             else MessageBox.Show("Сначала выберите класс героя и нажмите сохранить!");
         }
@@ -279,7 +277,7 @@ namespace Game.PagesWindows
             
         }
 
-        private void EquipButt_Click(object sender, RoutedEventArgs e)
+        public void EquipButt_Click(object sender, RoutedEventArgs e)
         {
             if (App.CanUpgrade == true)
             {
@@ -291,55 +289,82 @@ namespace Game.PagesWindows
 
         public void WeaponCheck(Weapon selWep1, Weapon selWep2)
         {
-            MessageBox.Show(selWep1.Type);
-            if (selWep1 == null)
+            selWeapon1 = selWep1;
+            selWeapon2 = selWep2;
+            if (selWeapon1 == null)
             {
-                StatBonus = new List<double>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            } 
-            else if (selWep1.Type == "GammaGun") 
+                App.StatBonus = new List<double>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            }
+            else if (selWeapon1.Type == "GammaGun")
             {
-                StatBonus[6] = 1; StatBonus[5] = 10; StatBonus[2] = 10; StatBonus[10] = 5; StatBonus[11] = 300;
+                App.StatBonus[6] = 1; App.StatBonus[5] = 10; App.StatBonus[2] = 10; App.StatBonus[10] = 5; App.StatBonus[11] = 300;
             }
 
             else if (selWep1.Type == "CrowAxe")
             {
-                StatBonus[6] = 5; StatBonus[1] = 10; StatBonus[10] = 60; StatBonus[11] = 70;
-                if (selWep2 != null)
+                App.StatBonus[6] = 5; App.StatBonus[1] = 10; App.StatBonus[10] = 60; App.StatBonus[11] = 70;
+                if (selWeapon2 != null)
                 {
-                    StatBonus[6] += 5; StatBonus[1] += 10; StatBonus[10] += 60; StatBonus[11] += 70;
+                    App.StatBonus[6] += 5; App.StatBonus[1] += 10; App.StatBonus[10] += 60; App.StatBonus[11] += 70;
                 }
             }
 
-            else if (selWep1.Type == "Ripper") 
+            else if (selWeapon1.Type == "Ripper")
             {
-                StatBonus[6] = 10; StatBonus[1] = 5; StatBonus[0] = 5; StatBonus[10] = 35; StatBonus[11] = 150;
+                App.StatBonus[6] = 10; App.StatBonus[1] = 5; App.StatBonus[0] = 5; App.StatBonus[10] = 35; App.StatBonus[11] = 150;
             }
 
-            else if (selWep1.Type == "ShishKebab")
+            else if (selWeapon1.Type == "ShishKebab")
             {
-                StatBonus[6] = 15; StatBonus[0] = 15; StatBonus[10] = 20; StatBonus[11] = 170;
+                App.StatBonus[6] = 15; App.StatBonus[0] = 15; App.StatBonus[10] = 20; App.StatBonus[11] = 170;
             }
 
-            else if (selWep1.Type == "SuperHammer")
+            else if (selWeapon1.Type == "SuperHammer")
             {
-                StatBonus[6] = 15; StatBonus[0] = 10; StatBonus[4] = 10; StatBonus[10] = 10; StatBonus[11] = 250;
+                App.StatBonus[6] = 15; App.StatBonus[0] = 10; App.StatBonus[4] = 10; App.StatBonus[10] = 10; App.StatBonus[11] = 250;
             }
             else
             {
-                StatBonus[0] = double.Parse(StrengthTb.Text) * 0.7;
-                StatBonus[1] = double.Parse(AgilityTb.Text) * 0.7;
-                StatBonus[2] = double.Parse(IntelligenceTb.Text) * 0.7;
-                StatBonus[3] = double.Parse(EnduranceTb.Text) * 0.7;
-                StatBonus[4] = double.Parse(HPTbx.Text) * 0.7;
-                StatBonus[5] = double.Parse(ManaTbx.Text) * 0.7;
-                StatBonus[6] = double.Parse(PDamageTb.Text) * 0.7;
-                StatBonus[7] = double.Parse(ArmorTb.Text) * 0.7;
-                StatBonus[8] = double.Parse(MDamageTb.Text) * 0.7;
-                StatBonus[9] = double.Parse(MDefenceTb.Text) * 0.7;
-                StatBonus[10] = - double.Parse(CrtChanceTb.Text);
-                StatBonus[11] = - double.Parse(CrtDamageTb.Text);
+                App.StatBonus[0] = Math.Round(App.Stats[0] * 0.7);
+                App.StatBonus[1] = Math.Round(App.Stats[1] * 0.7);
+                App.StatBonus[2] = Math.Round(App.Stats[2] * 0.7);
+                App.StatBonus[3] = Math.Round(App.Stats[3] * 0.7);
+                App.StatBonus[4] = Math.Round(double.Parse(PDamageTb.Text) * 0.7);
+                App.StatBonus[5] = Math.Round(double.Parse(ArmorTb.Text) * 0.7);
+                App.StatBonus[6] = Math.Round(double.Parse(MDamageTb.Text) * 0.7);
+                App.StatBonus[7] = Math.Round(double.Parse(MDefenceTb.Text) * 0.7);
+                App.StatBonus[8] = Math.Round(double.Parse(CrtChanceTb.Text) * 0.7);
+                App.StatBonus[9] = Math.Round(double.Parse(CrtDamageTb.Text) * 0.7);
+                App.StatBonus[10] = 0;
+                App.StatBonus[11] = 0;
+                App.Stats[10] = 0;
+                App.Stats[11] = 0;
+                CrtChanceTb.Text = "0";
+                CrtDamageTb.Text = "0";
+            }
+            int cunt = 0;
+            if (selWeapon1 != null)
+            {
+                if (selWeapon1.Rarity == "Rare") cunt += 2;
+                else if (selWeapon1.Rarity == "Legendary") cunt += 4;
+            }
+
+            if (selWeapon2 != null)
+            {
+                if (selWeapon2.Rarity == "Rare") cunt += 2;
+                else if (selWeapon2.Rarity == "Legendary") cunt += 4;
+            }
+
+            for (int i = 1; i <= cunt; i++)
+            {
+                int statId = App.rnd.Next(0, 12);
+                int statValue = App.rnd.Next(5, 16);
+                App.StatBonus[statId] += statValue;
+                MessageBox.Show("Лег. свойство: " + statId + ": " + statValue + "     " + App.StatBonus[statId]);
             }
             Refresh();
+            
         }
     }
+   
 }
