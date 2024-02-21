@@ -25,17 +25,20 @@ namespace Game.PagesWindows
         public WeaponUC(Weapon _weapon)
         {
             InitializeComponent();
+            
             weapon = _weapon;
             CorX.Text = _weapon.Cor.X.ToString();
             CorY.Text = _weapon.Cor.Y.ToString();
             Type.Text = _weapon.Type.ToString();
             Rarity.Text = _weapon.Rarity.ToString();
+            TipType.Text = weapon.Type;
             if (weapon.Rarity == "Common")
             {
                 RadialGradientBrush br = new RadialGradientBrush();
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(70, 55, 255, 0), 1));
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(30, 178, 255, 127), 0.2));
                 Grid.Background = br;
+                TipRar.Text = "0";
             }
             else if (weapon.Rarity == "Rare")
             {
@@ -43,6 +46,7 @@ namespace Game.PagesWindows
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(75, 0, 132, 255), 1));
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(35, 116, 243, 253), 0.2));
                 Grid.Background = br;
+                TipRar.Text = "2";
             }
             else if (weapon.Rarity == "Legendary")
             {
@@ -50,6 +54,7 @@ namespace Game.PagesWindows
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(100, 247, 51, 2), 1));
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(100, 247, 88, 2), 0.2));
                 Grid.Background = br;
+                TipRar.Text = "4";
             }
             switch (weapon.Type) 
             {
@@ -59,6 +64,7 @@ namespace Game.PagesWindows
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Width = 120;
                         Image.Stretch = Stretch.Uniform;
+                        TipHar.Text = "PD: +1; ";
                         return;
                     }
                 case "CrowAxe":

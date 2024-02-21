@@ -7,6 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="115" d:DesignWidth="115">
     <Grid Height="115" Width="115" Margin="2.5" Name="Grid" Cursor="Hand">
+        <Grid.ToolTip>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Тип:</TextBlock>
+                    <TextBlock x:Name="TipType"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Осн.хар-ки:</TextBlock>
+                    <TextBlock x:Name="TipHar"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Cursor="">
+                    <TextBlock>Кол-во доп.хар-к:</TextBlock>
+                    <TextBlock x:Name="TipRar"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid.ToolTip>
         <Image x:Name="Image" Source="/Resources/Shish-Kebab.png" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="Uniform"/>
         <TextBlock Visibility="Collapsed" x:Name="CorX"></TextBlock>
         <TextBlock Visibility="Collapsed" x:Name="CorY"></TextBlock>
