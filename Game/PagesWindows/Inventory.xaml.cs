@@ -206,7 +206,7 @@ namespace Game.PagesWindows
                         Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
                         Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
                     }
-                }
+                } 
                 else
                 {
                     Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
