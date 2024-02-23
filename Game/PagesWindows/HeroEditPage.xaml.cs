@@ -269,7 +269,6 @@ namespace Game.PagesWindows
                     LevelTbx.Text = (int.Parse(LevelTbx.Text) + 1).ToString();
                     StatTbx.Text = (int.Parse(StatTbx.Text) + 10).ToString();
                     MessageBox.Show("Новый уровень!");
-                    if (LevelTbx.Text == "10") ExpGiveButt.IsEnabled = false;
                 }
                 else ExpTbx.Text = CurrentExp.ToString();
             }
@@ -281,7 +280,7 @@ namespace Game.PagesWindows
         {
             if (App.CanUpgrade == true)
             {
-                Window inventory = new Inventory();
+                Window inventory = new Inventory(selWeapon1, selWeapon2);
                 inventory.Show();
             }
             else MessageBox.Show("Сначала выберите класс героя и нажмите сохранить!");
@@ -291,6 +290,7 @@ namespace Game.PagesWindows
         {
             selWeapon1 = selWep1;
             selWeapon2 = selWep2;
+            App.StatBonus = new List<double>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             if (selWeapon1 == null)
             {
                 App.StatBonus = new List<double>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -342,26 +342,68 @@ namespace Game.PagesWindows
                 CrtChanceTb.Text = "0";
                 CrtDamageTb.Text = "0";
             }
-            int cunt = 0;
+            //int cunt = 0;
+            //if (selWeapon1 != null)
+            //{
+            //    if (selWeapon1.Rarity == "Rare") cunt += 2;
+            //    else if (selWeapon1.Rarity == "Legendary") cunt += 4;
+            //}
+
+            //if (selWeapon2 != null)
+            //{
+            //    if (selWeapon2.Rarity == "Rare") cunt += 2;
+            //    else if (selWeapon2.Rarity == "Legendary") cunt += 4;
+            //}
+
+            //for (int i = 1; i <= cunt; i++)
+            //{
+            //    int statId = App.rnd.Next(0, 12);
+            //    int statValue = App.rnd.Next(5, 16);
+            //    App.StatBonus[statId] += statValue;
+            //    MessageBox.Show("Лег. свойство: " + statId + ": " + statValue + "     " + App.StatBonus[statId]);
+            //}
             if (selWeapon1 != null)
             {
-                if (selWeapon1.Rarity == "Rare") cunt += 2;
-                else if (selWeapon1.Rarity == "Legendary") cunt += 4;
-            }
+                if (selWeapon1.AddStats != "")
+                {
+                    var statsNames = new Dictionary<string, int>()
+                    {
+                        {"СЛ", 0 },
+                        {"ЛВ", 1 },
+                        {"ИН", 2 },
+                        {"ВН", 3 },
+                        {"ЗД", 4 },
+                        {"ОБЛ", 5 },
+                        {"Ф.УР", 6 },
+                        {"БР", 7 },
+                        {"Р.УР", 8 },
+                        {"Р.ЗЩ", 9 },
+                        {"КР.Ш", 10 },
+                        {"КР.УР", 11 }
+                    };
+                    foreach (var item in selWeapon1.AddStats.Split(';'))
+                    {
+                        int statId = statsNames[item.Split(':')[0].Trim()];
+                        int statValue = int.Parse(item.Split(':')[1]);
+                        App.StatBonus[statId] += statValue;
+                        //MessageBox.Show("Лег. свойство: " + statId + ": " + statValue + "     " + App.StatBonus[statId]);
+                    }
+                    if (selWeapon2 != null)
+                    {
+                        if (selWeapon2.AddStats != "")
+                        {
+                            foreach (var item in selWeapon2.AddStats.Split(';'))
+                            {
+                                int statId = statsNames[item.Split(':')[0].Trim()];
+                                int statValue = int.Parse(item.Split(':')[1]);
+                                App.StatBonus[statId] += statValue;
+                                //MessageBox.Show("Лег. свойство: " + statId + ": " + statValue + "     " + App.StatBonus[statId]);
+                            }
+                        }
+                    }
+                }
+            }    
 
-            if (selWeapon2 != null)
-            {
-                if (selWeapon2.Rarity == "Rare") cunt += 2;
-                else if (selWeapon2.Rarity == "Legendary") cunt += 4;
-            }
-
-            for (int i = 1; i <= cunt; i++)
-            {
-                int statId = App.rnd.Next(0, 12);
-                int statValue = App.rnd.Next(5, 16);
-                App.StatBonus[statId] += statValue;
-                MessageBox.Show("Лег. свойство: " + statId + ": " + statValue + "     " + App.StatBonus[statId]);
-            }
             Refresh();
             
         }

@@ -13,11 +13,13 @@ namespace Game.Components
         public string Type { get; set; }
         public string Rarity { get; set; }
         public Point Cor { get; set; }
-        public Weapon(string type, string rarity, Point cor) 
+        public string AddStats { get; set; }
+        public Weapon(string type, string rarity, Point cor, string addStats) 
         {
             Type = type;
             Rarity = rarity;
             Cor = cor;
+            AddStats = addStats;
         }
     }
 }

@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace Game.Components
 {
-    internal class Equip
+    public class Equip
     {
         public string Type { get; set; }
         public string Rarity { get; set; }
         public Point Cor { get; set; }
-        public Equip(string type, string rarity, Point cor)
+        public string AddStats { get; set; }
+        public Equip(string type, string rarity, Point cor, string addStats)
         {
             Type = type;
             Rarity = rarity;
             Cor = cor;
+            AddStats = addStats;
         }
     }
 }

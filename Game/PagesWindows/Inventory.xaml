@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Game.PagesWindows"
         mc:Ignorable="d"
         Title="Inventory" Height="815" Width="520">
-    <TabControl Background="#FF2F2F2F">
+    <TabControl x:Name="Tabs" Background="#FF2F2F2F">
         <TabItem Width="250" Header="Оружие">
             <TabItem.Content>
                 <Canvas x:Name="InvCns" Background="#FF2F2F2F" Height="768" Width="520" PreviewMouseMove="InvCns_PreviewMouseMove" PreviewMouseUp="InvCns_PreviewMouseUp">
@@ -30,7 +30,7 @@
         <TabItem Header="Броня" Width="250">
             <TabItem.Content>
                 <StackPanel>
-                    <Canvas x:Name="ArmorInvCns" Background="#FF2F2F2F" Height="768" Width="520" PreviewMouseMove="InvCns_PreviewMouseMove" PreviewMouseUp="InvCns_PreviewMouseUp">
+                    <Canvas x:Name="ArmorInvCns" Background="#FF2F2F2F" Height="768" Width="520" PreviewMouseMove="ArmCns_PreviewMouseMove" PreviewMouseUp="ArmCns_PreviewMouseUp">
                         <Canvas x:Name="ArmorSlotCns" Width="120" Height="640" HorizontalAlignment="Left">
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
                                 <Rectangle x:Name="Armor1" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>

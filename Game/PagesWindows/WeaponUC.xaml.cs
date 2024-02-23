@@ -32,13 +32,15 @@ namespace Game.PagesWindows
             Type.Text = _weapon.Type.ToString();
             Rarity.Text = _weapon.Rarity.ToString();
             TipType.Text = weapon.Type;
+            TipAddStat.Text = weapon.AddStats;
+            
             if (weapon.Rarity == "Common")
             {
                 RadialGradientBrush br = new RadialGradientBrush();
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(70, 55, 255, 0), 1));
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(30, 178, 255, 127), 0.2));
                 Grid.Background = br;
-                TipRar.Text = "0";
+                TipAddStat.Text = " - ";
             }
             else if (weapon.Rarity == "Rare")
             {
@@ -46,7 +48,6 @@ namespace Game.PagesWindows
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(75, 0, 132, 255), 1));
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(35, 116, 243, 253), 0.2));
                 Grid.Background = br;
-                TipRar.Text = "2";
             }
             else if (weapon.Rarity == "Legendary")
             {
@@ -54,8 +55,8 @@ namespace Game.PagesWindows
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(100, 247, 51, 2), 1));
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(100, 247, 88, 2), 0.2));
                 Grid.Background = br;
-                TipRar.Text = "4";
             }
+
             switch (weapon.Type) 
             {
                 case "GammaGun":
@@ -64,7 +65,7 @@ namespace Game.PagesWindows
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Width = 120;
                         Image.Stretch = Stretch.Uniform;
-                        TipHar.Text = "PD: +1; ";
+                        TipStat.Text = "Ф.УР:1; ОБЛ:10; ИН:10; КР.Ш:5; КР.УР:300";
                         return;
                     }
                 case "CrowAxe":
@@ -73,6 +74,7 @@ namespace Game.PagesWindows
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Width = 110;
                         Image.Stretch = Stretch.Uniform;
+                        TipStat.Text = "Ф.УР:5; ЛВ:10; КР.Ш:60; КР.УР:70";
                         return;
                     }
                 case "Ripper":
@@ -81,6 +83,7 @@ namespace Game.PagesWindows
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Width = 115;
                         Image.Stretch = Stretch.Uniform;
+                        TipStat.Text = "Ф.УР:10; ЛВ:5; СЛ:5; КР.Ш:35; КР.УР:150";
                         return;
                     }
                 case "ShishKebab":
@@ -89,6 +92,7 @@ namespace Game.PagesWindows
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Width = 128;
                         Image.Stretch = Stretch.Uniform;
+                        TipStat.Text = "Ф.УР:15; СЛ:15; КР.Ш:20; КР.УР:170";
                         return;
                     }
                 case "SuperHammer":
@@ -97,6 +101,7 @@ namespace Game.PagesWindows
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Width = 120;
                         Image.Stretch = Stretch.Uniform;
+                        TipStat.Text = "Ф.УР:15; СЛ:10; ЗД:10; КР.Ш:10; КР.УР:250";
                         return;
                     }
                 case "NukaShredder":
@@ -105,6 +110,7 @@ namespace Game.PagesWindows
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Width = 120;
                         Image.Stretch = Stretch.UniformToFill;
+                        TipStat.Text = "Все хар-ки + 70%; КР.Ш и КР.УР = 0";
                         return;
                     }
             }
