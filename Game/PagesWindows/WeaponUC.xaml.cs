@@ -40,7 +40,6 @@ namespace Game.PagesWindows
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(70, 55, 255, 0), 1));
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(30, 178, 255, 127), 0.2));
                 Grid.Background = br;
-                TipAddStat.Text = " - ";
             }
             else if (weapon.Rarity == "Rare")
             {

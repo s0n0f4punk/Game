@@ -38,43 +38,43 @@ namespace Game.PagesWindows
             selWeapon1 = _selWeapon1;
             selWeapon2 = _selWeapon2;
             guns.AddRange(new List<Weapon> {
-                new Weapon("GammaGun", "Common", new System.Drawing.Point(140, 0), ""),
+                new Weapon("GammaGun", "Common", new System.Drawing.Point(140, 0), " - "),
                 new Weapon("GammaGun", "Rare", new System.Drawing.Point(260, 0), "ИН:10; ВН:5" ),
                 new Weapon("GammaGun", "Legendary", new System.Drawing.Point(380, 0), "ИН:6; Р.УР:10; КР.УР:12; СЛ:8"),
-                new Weapon("CrowAxe", "Common", new System.Drawing.Point(140, 120), ""),
+                new Weapon("CrowAxe", "Common", new System.Drawing.Point(140, 120), " - "),
                 new Weapon("CrowAxe", "Rare", new System.Drawing.Point(260, 120), "ВН:8; Р.ЗЩ:10"),
                 new Weapon("CrowAxe", "Legendary", new System.Drawing.Point(380, 120), "ЛВ:12; КР.Ш:12; ЛВ:5; Р.УР:9"),
-                new Weapon("Ripper", "Common", new System.Drawing.Point(140, 240), ""),
+                new Weapon("Ripper", "Common", new System.Drawing.Point(140, 240), " - "),
                 new Weapon("Ripper", "Rare", new System.Drawing.Point(260, 240), "ИН:7; СЛ:8"),
                 new Weapon("Ripper", "Legendary", new System.Drawing.Point(380, 240), "СЛ:10; БР:13; КР.УР:5; Р.УР:15"),
-                new Weapon("ShishKebab", "Common", new System.Drawing.Point(140, 360), ""),
+                new Weapon("ShishKebab", "Common", new System.Drawing.Point(140, 360), " - "),
                 new Weapon("ShishKebab", "Rare", new System.Drawing.Point(260, 360), "Р.УР:9; Р.ЗЩ:10"),
                 new Weapon("ShishKebab", "Legendary", new System.Drawing.Point(380, 360), "КР.Ш:11; ЗД:9; Ф.УР:9; ОБЛ:13"),
-                new Weapon("SuperHammer", "Common", new System.Drawing.Point(140, 480), ""),
+                new Weapon("SuperHammer", "Common", new System.Drawing.Point(140, 480), " - "),
                 new Weapon("SuperHammer", "Rare", new System.Drawing.Point(260, 480), "ОБЛ:10; БР:12"),
                 new Weapon("SuperHammer", "Legendary", new System.Drawing.Point(380, 480), "КР.УР:4; Р.УР:9; Ф.УР:10; БР:6"),
-                new Weapon("NukaShredder", "Common", new System.Drawing.Point(140, 600), ""),
+                new Weapon("NukaShredder", "Common", new System.Drawing.Point(140, 600), " - "),
                 new Weapon("NukaShredder", "Rare", new System.Drawing.Point(260, 600), "ИН:15; Ф.УР:15"),
                 new Weapon("NukaShredder", "Legendary", new System.Drawing.Point(380, 600), "СЛ:5; ИН:5; ЛВ:5; ВН:5"),
             });
 
             armors.AddRange(new List<Equip>
             {
-                new Equip("Robe", "Common", new System.Drawing.Point(140, 0), ""),
-                new Equip("Robe", "Rare", new System.Drawing.Point(260, 0), ""),
-                new Equip("Robe", "Legendary", new System.Drawing.Point(380, 0), ""),
-                new Equip("LeatherArmor", "Common", new System.Drawing.Point(140, 120), ""),
-                new Equip("LeatherArmor", "Rare", new System.Drawing.Point(260, 120), ""),
-                new Equip("LeatherArmor", "Legendary", new System.Drawing.Point(380, 120), ""),
-                new Equip("ChainArmor", "Common", new System.Drawing.Point(140, 240), ""),
-                new Equip("ChainArmor", "Rare", new System.Drawing.Point(260, 240), ""),
-                new Equip("ChainArmor", "Legendary", new System.Drawing.Point(380, 240), ""),
-                new Equip("PlateArmor", "Common", new System.Drawing.Point(140, 360), ""),
-                new Equip("PlateArmor", "Rare", new System.Drawing.Point(260, 360), ""),
-                new Equip("PlateArmor", "Legendary", new System.Drawing.Point(380, 360), ""),
-                new Equip("Ring", "Common", new System.Drawing.Point(140, 480), ""),
-                new Equip("Ring", "Rare", new System.Drawing.Point(260, 480), ""),
-                new Equip("Ring", "Legendary", new System.Drawing.Point(380, 480), ""),
+                new Equip("Robe", "Common", new System.Drawing.Point(140, 0), " - "),
+                new Equip("Robe", "Rare", new System.Drawing.Point(260, 0), "КР.УР:14;"),
+                new Equip("Robe", "Legendary", new System.Drawing.Point(380, 0), "Ф.УР:9; ОБЛ:13"),
+                new Equip("LeatherArmor", "Common", new System.Drawing.Point(140, 120), " - "),
+                new Equip("LeatherArmor", "Rare", new System.Drawing.Point(260, 120), "ЗД:9; "),
+                new Equip("LeatherArmor", "Legendary", new System.Drawing.Point(380, 120), "Р.УР:9; Р.УР:12"),
+                new Equip("ChainArmor", "Common", new System.Drawing.Point(140, 240), " - "),
+                new Equip("ChainArmor", "Rare", new System.Drawing.Point(260, 240), "СЛ:10; "),
+                new Equip("ChainArmor", "Legendary", new System.Drawing.Point(380, 240), "Ф.УР:9; БР:13"),
+                new Equip("PlateArmor", "Common", new System.Drawing.Point(140, 360), " - "),
+                new Equip("PlateArmor", "Rare", new System.Drawing.Point(260, 360), "ЛВ:5;"),
+                new Equip("PlateArmor", "Legendary", new System.Drawing.Point(380, 360), "КР.УР:8; ВН:5"),
+                new Equip("Ring", "Common", new System.Drawing.Point(140, 480), " - "),
+                new Equip("Ring", "Rare", new System.Drawing.Point(260, 480), "Р.УР:10;"),
+                new Equip("Ring", "Legendary", new System.Drawing.Point(380, 480), "ИН:5; ЛВ:5"),
             });
 
             foreach (Equip eq in armors)
@@ -213,16 +213,42 @@ namespace Game.PagesWindows
                     Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
                     if (equip.Type.Text == "Robe" || equip.Type.Text == "LeatherArmor" || equip.Type.Text == "ChainArmor" || equip.Type.Text == "PlateArmor")
                         selArmor = null;
-                    else if (equip.Type.Text == "Ring" && selRing1.Rarity == equip.Rarity.Text)
+                    else if (equip.Type.Text == "Ring")
                     {
-                        selRing1 = null;
-                        selRing2 = null;
+                        if (selRing1 != null)
+                        {
+                            if (selRing1.Rarity == equip.Rarity.Text)
+                            { 
+                                selRing1 = null;
+                                if (selRing2 != null)
+                                {
+                                    foreach (var child in ArmorInvCns.Children)
+                                    {
+                                        EquipUC eq = child as EquipUC;
+                                        if (eq != null)
+                                        {
+                                            if (eq.Type.Text == "Ring" && eq.Rarity.Text == selRing2.Rarity && eq.TipAddStat.Text == selRing2.AddStats)
+                                            {
+                                                Canvas.SetTop(eq, double.Parse(selRing2.Cor.Y.ToString()));
+                                                Canvas.SetLeft(eq, double.Parse(selRing2.Cor.X.ToString()));
+                                                selRing2 = null;
+                                                eq = null;
+                                                break;
+                                            }
+                                        }
+                                   
+                                    }
+                                }
+                                
+                            }
+                        }
+                        if (selRing2 != null)
+                        {
+                            if (selRing2.Rarity == equip.Rarity.Text)
+                                selRing2 = null;
+                        }
                     }
-                    else if (equip.Type.Text == "Ring" && selRing2.Rarity == equip.Rarity.Text) 
-                        selRing2 = null;
-                    
                 }
-
                 this.dragObject = null;
                 this.ArmorInvCns.ReleaseMouseCapture();
             }
@@ -274,6 +300,29 @@ namespace Game.PagesWindows
                         {
                             isFirstSlotBusy = false;
                             selWeapon1 = null;
+                            if (selWeapon2 != null)
+                            {
+                                MessageBox.Show(selWeapon2.Type);
+                                if (selWeapon2.Type == "CrowAxe")
+                                {
+                                    foreach (var child in InvCns.Children)
+                                    {
+                                        WeaponUC weap = child as WeaponUC;
+                                        if (weap != null)
+                                        {
+                                            if (weap.Type.Text == "CrowAxe" && weap.Rarity.Text == selWeapon2.Rarity && weap.TipAddStat.Text == selWeapon2.AddStats)
+                                            {
+                                                Canvas.SetTop(weap, double.Parse(selWeapon2.Cor.Y.ToString()));
+                                                Canvas.SetLeft(weap, double.Parse(selWeapon2.Cor.X.ToString()));
+                                                selWeapon2 = null;
+                                                weap = null;
+                                                break;
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
                         }                    
                     } 
                     Canvas.SetTop(this.dragObject, double.Parse(weapon.CorY.Text));

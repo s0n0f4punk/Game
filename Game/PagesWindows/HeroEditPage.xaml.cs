@@ -342,29 +342,10 @@ namespace Game.PagesWindows
                 CrtChanceTb.Text = "0";
                 CrtDamageTb.Text = "0";
             }
-            //int cunt = 0;
-            //if (selWeapon1 != null)
-            //{
-            //    if (selWeapon1.Rarity == "Rare") cunt += 2;
-            //    else if (selWeapon1.Rarity == "Legendary") cunt += 4;
-            //}
 
-            //if (selWeapon2 != null)
-            //{
-            //    if (selWeapon2.Rarity == "Rare") cunt += 2;
-            //    else if (selWeapon2.Rarity == "Legendary") cunt += 4;
-            //}
-
-            //for (int i = 1; i <= cunt; i++)
-            //{
-            //    int statId = App.rnd.Next(0, 12);
-            //    int statValue = App.rnd.Next(5, 16);
-            //    App.StatBonus[statId] += statValue;
-            //    MessageBox.Show("Лег. свойство: " + statId + ": " + statValue + "     " + App.StatBonus[statId]);
-            //}
             if (selWeapon1 != null)
             {
-                if (selWeapon1.AddStats != "")
+                if (selWeapon1.AddStats != " - ")
                 {
                     var statsNames = new Dictionary<string, int>()
                     {
@@ -386,7 +367,6 @@ namespace Game.PagesWindows
                         int statId = statsNames[item.Split(':')[0].Trim()];
                         int statValue = int.Parse(item.Split(':')[1]);
                         App.StatBonus[statId] += statValue;
-                        //MessageBox.Show("Лег. свойство: " + statId + ": " + statValue + "     " + App.StatBonus[statId]);
                     }
                     if (selWeapon2 != null)
                     {
@@ -397,7 +377,6 @@ namespace Game.PagesWindows
                                 int statId = statsNames[item.Split(':')[0].Trim()];
                                 int statValue = int.Parse(item.Split(':')[1]);
                                 App.StatBonus[statId] += statValue;
-                                //MessageBox.Show("Лег. свойство: " + statId + ": " + statValue + "     " + App.StatBonus[statId]);
                             }
                         }
                     }
