@@ -112,6 +112,16 @@ namespace Game.PagesWindows
                         TipStat.Text = "Все хар-ки + 70%; КР.Ш и КР.УР = 0";
                         return;
                     }
+                case "Shield":
+                    {
+                        Uri uri = new Uri("pack://application:,,,/Resources/shieldWeapon.png");
+                        Image.Source = new BitmapImage(new Uri(uri.ToString()));
+                        Image.Height = 120;
+                        Image.Stretch = Stretch.UniformToFill;
+                        TipStat.Text = "";
+                        return;
+
+                    }
             }
         }
     }

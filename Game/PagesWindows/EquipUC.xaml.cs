@@ -55,6 +55,80 @@ namespace Game.PagesWindows
                 br.GradientStops.Add(new GradientStop(Color.FromArgb(100, 247, 88, 2), 0.2));
                 Grid.Background = br;
             }
+
+            switch (equip.Type)
+            {
+                case "Robe":
+                    {
+                        Uri uri = new Uri("pack://application:,,,/Resources/robe.png");
+                        Image.Source = new BitmapImage(new Uri(uri.ToString()));
+                        Image.Width = 120;
+                        Image.Stretch = Stretch.Uniform;
+                        Image.HorizontalAlignment = HorizontalAlignment.Center;
+                        TipStat.Text = "ОБЛ:15; ИН:15; ЗД:5";
+                        return;
+                    }
+                case "LeatherArmor":
+                    {
+                        Uri uri = new Uri("pack://application:,,,/Resources/leather.png");
+                        Image.Source = new BitmapImage(new Uri(uri.ToString()));
+                        Image.Width = 120;
+                        Image.Stretch = Stretch.Uniform;
+                        Image.HorizontalAlignment = HorizontalAlignment.Center;
+                        TipStat.Text = "Ф.УР:1; ОБЛ:10; ИН:10; КР.Ш:5; КР.УР:300";
+                        return;
+                    }
+                case "ChainArmor":
+                    {
+                        Uri uri = new Uri("pack://application:,,,/Resources/chain.png");
+                        Image.Source = new BitmapImage(new Uri(uri.ToString()));
+                        Image.Width = 120;
+                        Image.Stretch = Stretch.Uniform;
+                        Image.HorizontalAlignment = HorizontalAlignment.Center;
+                        TipStat.Text = "Ф.УР:1; ОБЛ:10; ИН:10; КР.Ш:5; КР.УР:300";
+                        return;
+                    }
+                case "PlateArmor":
+                    {
+                        Uri uri = new Uri("pack://application:,,,/Resources/plate.png");
+                        Image.Source = new BitmapImage(new Uri(uri.ToString()));
+                        Image.Width = 120;
+                        Image.Stretch = Stretch.Uniform;
+                        Image.HorizontalAlignment = HorizontalAlignment.Center;
+                        TipStat.Text = "Ф.УР:1; ОБЛ:10; ИН:10; КР.Ш:5; КР.УР:300";
+                        return;
+                    }
+                case "Ring":
+                    {
+                        Uri uri = new Uri("pack://application:,,,/Resources/ring (1).png");
+                        Image.Source = new BitmapImage(new Uri(uri.ToString()));
+                        Image.Width = 120;
+                        Image.Stretch = Stretch.Uniform;
+                        Image.HorizontalAlignment = HorizontalAlignment.Center;
+                        TipStat.Text = "Ф.УР:1; ОБЛ:10; ИН:10; КР.Ш:5; КР.УР:300";
+                        return;
+                    }
+                case "Amulet":
+                    {
+                        Uri uri = new Uri("pack://application:,,,/Resources/necklace.png");
+                        Image.Source = new BitmapImage(new Uri(uri.ToString()));
+                        Image.Width = 120;
+                        Image.Stretch = Stretch.Uniform;
+                        Image.HorizontalAlignment = HorizontalAlignment.Center;
+                        TipStat.Text = "Ф.УР:1; ОБЛ:10; ИН:10; КР.Ш:5; КР.УР:300";
+                        return;
+                    }
+                case "Helmet":
+                    {
+                        Uri uri = new Uri("pack://application:,,,/Resources/helmet.png");
+                        Image.Source = new BitmapImage(new Uri(uri.ToString()));
+                        Image.Width = 120;
+                        Image.Stretch = Stretch.Uniform;
+                        Image.HorizontalAlignment = HorizontalAlignment.Center;
+                        TipStat.Text = "Ф.УР:1; ОБЛ:10; ИН:10; КР.Ш:5; КР.УР:300";
+                        return;
+                    }
+            }
         }
     }
 }

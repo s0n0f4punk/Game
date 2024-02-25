@@ -17,9 +17,13 @@
                     <TextBlock>Осн.хар-ки:</TextBlock>
                     <TextBlock x:Name="TipStat"></TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Cursor="">
+                <StackPanel Orientation="Horizontal">
                     <TextBlock>Доп.хар-ки:</TextBlock>
                     <TextBlock x:Name="TipAddStat"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Условия:</TextBlock>
+                    <TextBlock x:Name="TipReq"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </Grid.ToolTip>

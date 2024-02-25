@@ -166,5 +166,29 @@
   <ItemGroup>
     <Resource Include="Resources\Shield.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\robe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\leather.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\plate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\chain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\helmet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\necklace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ring %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\shieldWeapon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

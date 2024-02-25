@@ -53,9 +53,12 @@ namespace Game.PagesWindows
                 new Weapon("SuperHammer", "Common", new System.Drawing.Point(140, 480), " - "),
                 new Weapon("SuperHammer", "Rare", new System.Drawing.Point(260, 480), "ОБЛ:10; БР:12"),
                 new Weapon("SuperHammer", "Legendary", new System.Drawing.Point(380, 480), "КР.УР:4; Р.УР:9; Ф.УР:10; БР:6"),
-                new Weapon("NukaShredder", "Common", new System.Drawing.Point(140, 600), " - "),
-                new Weapon("NukaShredder", "Rare", new System.Drawing.Point(260, 600), "ИН:15; Ф.УР:15"),
-                new Weapon("NukaShredder", "Legendary", new System.Drawing.Point(380, 600), "СЛ:5; ИН:5; ЛВ:5; ВН:5"),
+                //new Weapon("NukaShredder", "Common", new System.Drawing.Point(140, 600), " - "),
+                //new Weapon("NukaShredder", "Rare", new System.Drawing.Point(260, 600), "ИН:15; Ф.УР:15"),
+                //new Weapon("NukaShredder", "Legendary", new System.Drawing.Point(380, 600), "СЛ:5; ИН:5; ЛВ:5; ВН:5"),
+                new Weapon("Shield", "Common", new System.Drawing.Point(140, 600), " - "),
+                new Weapon("Shield", "Rare", new System.Drawing.Point(260, 600), "ИН:15; Ф.УР:15"),
+                new Weapon("Shield", "Legendary", new System.Drawing.Point(380, 600), "СЛ:5; ИН:5; ЛВ:5; ВН:5"),
             });
 
             armors.AddRange(new List<Equip>
@@ -75,6 +78,12 @@ namespace Game.PagesWindows
                 new Equip("Ring", "Common", new System.Drawing.Point(140, 480), " - "),
                 new Equip("Ring", "Rare", new System.Drawing.Point(260, 480), "Р.УР:10;"),
                 new Equip("Ring", "Legendary", new System.Drawing.Point(380, 480), "ИН:5; ЛВ:5"),
+                new Equip("Amulet", "Common", new System.Drawing.Point(140, 600), " - "),
+                new Equip("Amulet", "Rare", new System.Drawing.Point(260, 600), "СЛ:15;"),
+                new Equip("Amulet", "Legendary", new System.Drawing.Point(380, 600), "ЗД:8; ВН:15"),
+                new Equip("Helmet", "Common", new System.Drawing.Point(140, 600), " - "),
+                new Equip("Helmet", "Rare", new System.Drawing.Point(260, 600), "Ф.УР:7;"),
+                new Equip("Helmet", "Legendary", new System.Drawing.Point(380, 600), "ИН:9; ОБЛ:15"),
             });
 
             foreach (Equip eq in armors)
@@ -175,6 +184,7 @@ namespace Game.PagesWindows
                     }
                     else
                     {
+                        MessageBox.Show("1");
                         Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
                         Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
                     }
@@ -209,16 +219,20 @@ namespace Game.PagesWindows
                 } 
                 else
                 {
+                    
                     Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
                     Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
-                    if (equip.Type.Text == "Robe" || equip.Type.Text == "LeatherArmor" || equip.Type.Text == "ChainArmor" || equip.Type.Text == "PlateArmor")
+                    if (Position.X > 120 && (equip.Type.Text == "Robe" || equip.Type.Text == "LeatherArmor" || equip.Type.Text == "ChainArmor" || equip.Type.Text == "PlateArmor"))
+                    {
+                        if (equip.Type.Text == selArmor.Type && equip.Rarity.Text == selArmor.Rarity)
                         selArmor = null;
+                    }
                     else if (equip.Type.Text == "Ring")
                     {
                         if (selRing1 != null)
                         {
                             if (selRing1.Rarity == equip.Rarity.Text)
-                            { 
+                            {
                                 selRing1 = null;
                                 if (selRing2 != null)
                                 {
@@ -236,10 +250,10 @@ namespace Game.PagesWindows
                                                 break;
                                             }
                                         }
-                                   
+
                                     }
                                 }
-                                
+
                             }
                         }
                         if (selRing2 != null)
