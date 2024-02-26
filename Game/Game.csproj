@@ -190,5 +190,14 @@
   <ItemGroup>
     <Resource Include="Resources\shieldWeapon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\necklaceIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\helmetIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\armorIco.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

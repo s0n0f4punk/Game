@@ -222,7 +222,7 @@ namespace Game.PagesWindows
                     
                     Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
                     Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
-                    if (Position.X > 120 && (equip.Type.Text == "Robe" || equip.Type.Text == "LeatherArmor" || equip.Type.Text == "ChainArmor" || equip.Type.Text == "PlateArmor"))
+                    if (Position.X > 120 && (equip.Type.Text == "Robe" || equip.Type.Text == "LeatherArmor" || equip.Type.Text == "ChainArmor" || equip.Type.Text == "PlateArmor") && selArmor != null)
                     {
                         if (equip.Type.Text == selArmor.Type && equip.Rarity.Text == selArmor.Rarity)
                         selArmor = null;
@@ -238,7 +238,7 @@ namespace Game.PagesWindows
                                 {
                                     foreach (var child in ArmorInvCns.Children)
                                     {
-                                        EquipUC eq = child as EquipUC;
+                                        EquipUC eq = (EquipUC)child;
                                         if (eq != null)
                                         {
                                             if (eq.Type.Text == "Ring" && eq.Rarity.Text == selRing2.Rarity && eq.TipAddStat.Text == selRing2.AddStats)
@@ -285,8 +285,8 @@ namespace Game.PagesWindows
             Canvas.SetLeft(this.dragObject, position.X - this.offset.X);
         }
         public WeaponUC secWeapon;
-        Uri cross = new Uri("pack://application:,,,/Resources/Cross.png");
-        Uri shield = new Uri("pack://application:,,,/Resources/Shield.png");
+        readonly Uri cross = new Uri("pack://application:,,,/Resources/Cross.png");
+        readonly Uri shield = new Uri("pack://application:,,,/Resources/Shield.png");
 
         private void InvCns_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {   
@@ -321,7 +321,7 @@ namespace Game.PagesWindows
                                 {
                                     foreach (var child in InvCns.Children)
                                     {
-                                        WeaponUC weap = child as WeaponUC;
+                                        WeaponUC weap = (WeaponUC)child;
                                         if (weap != null)
                                         {
                                             if (weap.Type.Text == "CrowAxe" && weap.Rarity.Text == selWeapon2.Rarity && weap.TipAddStat.Text == selWeapon2.AddStats)

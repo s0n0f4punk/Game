@@ -63,6 +63,16 @@ namespace Game.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap armorIco {
+            get {
+                object obj = ResourceManager.GetObject("armorIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Atom {
             get {
                 object obj = ResourceManager.GetObject("Atom", resourceCulture);
@@ -143,6 +153,16 @@ namespace Game.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap helmetIco {
+            get {
+                object obj = ResourceManager.GetObject("helmetIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap leather {
             get {
                 object obj = ResourceManager.GetObject("leather", resourceCulture);
@@ -166,6 +186,16 @@ namespace Game.Properties {
         internal static System.Drawing.Bitmap necklace {
             get {
                 object obj = ResourceManager.GetObject("necklace", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap necklaceIco {
+            get {
+                object obj = ResourceManager.GetObject("necklaceIco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
