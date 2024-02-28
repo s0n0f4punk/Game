@@ -26,6 +26,12 @@ namespace Game.PagesWindows
     {
         public Weapon selWeapon1;
         public Weapon selWeapon2;
+        public Equip selArmor;
+        public Equip selRing1;
+        public Equip selRing2;
+        public Equip selAmulet;
+        public Equip selHelmet;
+        public Weapon selShield;
         public int ClassIndex = -1;
        
         public HeroEditPage()
@@ -286,10 +292,15 @@ namespace Game.PagesWindows
             else MessageBox.Show("Сначала выберите класс героя и нажмите сохранить!");
         }
 
-        public void WeaponCheck(Weapon selWep1, Weapon selWep2)
+        public void WeaponCheck(Weapon selWep1, Weapon selWep2, Equip selArm, Equip selR1, Equip selR2, Equip selAm, Equip selHel)
         {
             selWeapon1 = selWep1;
             selWeapon2 = selWep2;
+            selArmor = selArm;
+            selRing1 = selR1;
+            selRing2 = selR2;
+            selAmulet = selAm;
+            selHelmet = selHel;
             App.StatBonus = new List<double>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             if (selWeapon1 == null)
             {

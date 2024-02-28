@@ -119,6 +119,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </Resource>
+    <None Include="Properties\DataSources\App.datasource" />
+    <None Include="Properties\DataSources\Game.Components.Equip.datasource" />
+    <None Include="Properties\DataSources\Game.Components.Weapon.datasource" />
+    <None Include="Properties\DataSources\Game.PagesWindows.EquipUC.datasource" />
+    <None Include="Properties\DataSources\Game.PagesWindows.HeroEditPage.datasource" />
+    <None Include="Properties\DataSources\Game.PagesWindows.Inventory.datasource" />
+    <None Include="Properties\DataSources\Game.PagesWindows.WeaponUC.datasource" />
+    <None Include="Properties\DataSources\Game.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\MainWindow.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

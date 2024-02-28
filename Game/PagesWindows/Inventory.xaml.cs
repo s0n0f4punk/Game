@@ -32,6 +32,7 @@ namespace Game.PagesWindows
         public Weapon selShield = null;
         public bool isFirstSlotBusy = false;
         public bool isSecSlotBusy = false;
+        public bool isShieldAble = false;
         public Inventory(Weapon _selWeapon1, Weapon _selWeapon2)
         {
             InitializeComponent();
@@ -53,12 +54,12 @@ namespace Game.PagesWindows
                 new Weapon("SuperHammer", "Common", new System.Drawing.Point(140, 480), " - "),
                 new Weapon("SuperHammer", "Rare", new System.Drawing.Point(260, 480), "ОБЛ:10; БР:12"),
                 new Weapon("SuperHammer", "Legendary", new System.Drawing.Point(380, 480), "КР.УР:4; Р.УР:9; Ф.УР:10; БР:6"),
-                //new Weapon("NukaShredder", "Common", new System.Drawing.Point(140, 600), " - "),
-                //new Weapon("NukaShredder", "Rare", new System.Drawing.Point(260, 600), "ИН:15; Ф.УР:15"),
-                //new Weapon("NukaShredder", "Legendary", new System.Drawing.Point(380, 600), "СЛ:5; ИН:5; ЛВ:5; ВН:5"),
-                new Weapon("Shield", "Common", new System.Drawing.Point(140, 600), " - "),
-                new Weapon("Shield", "Rare", new System.Drawing.Point(260, 600), "ИН:15; Ф.УР:15"),
-                new Weapon("Shield", "Legendary", new System.Drawing.Point(380, 600), "СЛ:5; ИН:5; ЛВ:5; ВН:5"),
+                new Weapon("NukaShredder", "Common", new System.Drawing.Point(140, 600), " - "),
+                new Weapon("NukaShredder", "Rare", new System.Drawing.Point(260, 600), "ИН:15; Ф.УР:15"),
+                new Weapon("NukaShredder", "Legendary", new System.Drawing.Point(380, 600), "СЛ:5; ИН:5; ЛВ:5; ВН:5"),
+                new Weapon("Shield", "Common", new System.Drawing.Point(140, 720), " - "),
+                new Weapon("Shield", "Rare", new System.Drawing.Point(260, 720), "ИН:15; Ф.УР:15"),
+                new Weapon("Shield", "Legendary", new System.Drawing.Point(380, 720), "СЛ:5; ИН:5; ЛВ:5; ВН:5"),
             });
 
             armors.AddRange(new List<Equip>
@@ -81,9 +82,9 @@ namespace Game.PagesWindows
                 new Equip("Amulet", "Common", new System.Drawing.Point(140, 600), " - "),
                 new Equip("Amulet", "Rare", new System.Drawing.Point(260, 600), "СЛ:15;"),
                 new Equip("Amulet", "Legendary", new System.Drawing.Point(380, 600), "ЗД:8; ВН:15"),
-                new Equip("Helmet", "Common", new System.Drawing.Point(140, 600), " - "),
-                new Equip("Helmet", "Rare", new System.Drawing.Point(260, 600), "Ф.УР:7;"),
-                new Equip("Helmet", "Legendary", new System.Drawing.Point(380, 600), "ИН:9; ОБЛ:15"),
+                new Equip("Helmet", "Common", new System.Drawing.Point(140, 720), " - "),
+                new Equip("Helmet", "Rare", new System.Drawing.Point(260, 720), "Ф.УР:7;"),
+                new Equip("Helmet", "Legendary", new System.Drawing.Point(380, 720), "ИН:9; ОБЛ:15"),
             });
 
             foreach (Equip eq in armors)
@@ -111,6 +112,7 @@ namespace Game.PagesWindows
                         {
                             isSecSlotBusy = true;
                             Image.Source = new BitmapImage(new Uri(shield.ToString()));
+                            isShieldAble = true;
                         }
                         else if (selWeapon1.Type == "CrowAxe")
                         {
@@ -138,6 +140,7 @@ namespace Game.PagesWindows
                         continue;
                     }
                 }
+
                 var gandon = new WeaponUC(gun);
                 Canvas.SetTop(gandon, gun.Cor.Y);
                 Canvas.SetLeft(gandon, gun.Cor.X);
@@ -184,7 +187,6 @@ namespace Game.PagesWindows
                     }
                     else
                     {
-                        MessageBox.Show("1");
                         Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
                         Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
                     }
@@ -219,13 +221,21 @@ namespace Game.PagesWindows
                 } 
                 else
                 {
-                    
                     Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
                     Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
                     if (Position.X > 120 && (equip.Type.Text == "Robe" || equip.Type.Text == "LeatherArmor" || equip.Type.Text == "ChainArmor" || equip.Type.Text == "PlateArmor") && selArmor != null)
                     {
                         if (equip.Type.Text == selArmor.Type && equip.Rarity.Text == selArmor.Rarity)
-                        selArmor = null;
+                            selArmor = null;
+                    }
+                    else if ((equip.Type.Text == "Robe" || equip.Type.Text == "LeatherArmor" || equip.Type.Text == "ChainArmor" || equip.Type.Text == "PlateArmor") && selArmor != null && Position.X <120)
+                    {
+                        if (equip.Type.Text == selArmor.Type && equip.Rarity.Text == selArmor.Rarity)
+                        {
+                            Canvas.SetTop(this.dragObject, double.Parse(selArmor.Cor.Y.ToString()));
+                            Canvas.SetLeft(this.dragObject, double.Parse(selArmor.Cor.X.ToString()));
+                            selArmor = null;
+                        }
                     }
                     else if (equip.Type.Text == "Ring")
                     {
@@ -238,7 +248,7 @@ namespace Game.PagesWindows
                                 {
                                     foreach (var child in ArmorInvCns.Children)
                                     {
-                                        EquipUC eq = (EquipUC)child;
+                                        EquipUC eq = child as EquipUC;
                                         if (eq != null)
                                         {
                                             if (eq.Type.Text == "Ring" && eq.Rarity.Text == selRing2.Rarity && eq.TipAddStat.Text == selRing2.AddStats)
@@ -262,6 +272,7 @@ namespace Game.PagesWindows
                                 selRing2 = null;
                         }
                     }
+
                 }
                 this.dragObject = null;
                 this.ArmorInvCns.ReleaseMouseCapture();
@@ -321,10 +332,29 @@ namespace Game.PagesWindows
                                 {
                                     foreach (var child in InvCns.Children)
                                     {
-                                        WeaponUC weap = (WeaponUC)child;
+                                        WeaponUC weap = child as WeaponUC;
                                         if (weap != null)
                                         {
                                             if (weap.Type.Text == "CrowAxe" && weap.Rarity.Text == selWeapon2.Rarity && weap.TipAddStat.Text == selWeapon2.AddStats)
+                                            {
+                                                Canvas.SetTop(weap, double.Parse(selWeapon2.Cor.Y.ToString()));
+                                                Canvas.SetLeft(weap, double.Parse(selWeapon2.Cor.X.ToString()));
+                                                selWeapon2 = null;
+                                                weap = null;
+                                                break;
+                                            }
+                                        }
+
+                                    }
+                                }
+                                else if (selWeapon2.Type == "Shield")
+                                {
+                                    foreach (var child in InvCns.Children)
+                                    {
+                                        WeaponUC weap = child as WeaponUC;
+                                        if (weap != null)
+                                        {
+                                            if (weap.Type.Text == "Shield" && weap.Rarity.Text == selWeapon2.Rarity && weap.TipAddStat.Text == selWeapon2.AddStats)
                                             {
                                                 Canvas.SetTop(weap, double.Parse(selWeapon2.Cor.Y.ToString()));
                                                 Canvas.SetLeft(weap, double.Parse(selWeapon2.Cor.X.ToString()));
@@ -350,6 +380,7 @@ namespace Game.PagesWindows
                     {
                         isSecSlotBusy = true;
                         Image.Source = new BitmapImage(new Uri(shield.ToString()));
+                        isShieldAble = true;
                     }
                     else if (selWeapon1.Type == "CrowAxe")
                     {
@@ -378,6 +409,12 @@ namespace Game.PagesWindows
                         selWeapon2 = guns.Find(x => x.Type == weapon.Type.Text && x.Rarity == weapon.Rarity.Text);
                         isSecSlotBusy = true;
                     }
+                }
+                else if (isFirstSlotBusy && Position.X < 120 && Position.Y > 120 && Position.Y < 260 && weapon.Type.Text == "Shield" && isShieldAble && selWeapon2 == null)
+                {
+                    Canvas.SetTop(this.dragObject, 145);
+                    Canvas.SetLeft(this.dragObject, 5);
+                    selWeapon2 = guns.Find(x => x.Type == weapon.Type.Text && x.Rarity == weapon.Rarity.Text);
                 }
                 else if (isFirstSlotBusy && isSecSlotBusy && selWeapon2 != null)
                 {
@@ -418,7 +455,7 @@ namespace Game.PagesWindows
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            App.heroEditPage.WeaponCheck(selWeapon1,selWeapon2);
+            App.heroEditPage.WeaponCheck(selWeapon1,selWeapon2, selArmor, selRing1, selRing2, selAmulet, selHelmet);
         }
     }
 }
