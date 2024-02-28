@@ -118,7 +118,7 @@ namespace Game.PagesWindows
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Height = 120;
                         Image.Stretch = Stretch.UniformToFill;
-                        TipStat.Text = "";
+                        TipStat.Text = "+БР: ЛВЛ; -ЛВ: ЛВЛ; Шанс блока: 5-25%";
                         return;
 
                     }

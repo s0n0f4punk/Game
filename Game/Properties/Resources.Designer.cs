@@ -233,9 +233,19 @@ namespace Game.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ring__1_ {
+        internal static System.Drawing.Bitmap ring {
             get {
-                object obj = ResourceManager.GetObject("ring__1_", resourceCulture);
+                object obj = ResourceManager.GetObject("ring", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ringIco {
+            get {
+                object obj = ResourceManager.GetObject("ringIco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

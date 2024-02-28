@@ -323,18 +323,30 @@ namespace Game.PagesWindows
             else if (selWeapon1.Type == "Ripper")
             {
                 App.StatBonus[6] = 10; App.StatBonus[1] = 5; App.StatBonus[0] = 5; App.StatBonus[10] = 35; App.StatBonus[11] = 150;
+                if (selWeapon2.Type != null)
+                {
+                    App.StatBonus[1] = -int.Parse(LevelTbx.Text); App.StatBonus[7] = int.Parse(LevelTbx.Text);
+                }
             }
 
             else if (selWeapon1.Type == "ShishKebab")
             {
                 App.StatBonus[6] = 15; App.StatBonus[0] = 15; App.StatBonus[10] = 20; App.StatBonus[11] = 170;
+                if (selWeapon2.Type != null)
+                {
+                    App.StatBonus[1] = -int.Parse(LevelTbx.Text); App.StatBonus[7] = int.Parse(LevelTbx.Text);
+                }
             }
 
             else if (selWeapon1.Type == "SuperHammer")
             {
                 App.StatBonus[6] = 15; App.StatBonus[0] = 10; App.StatBonus[4] = 10; App.StatBonus[10] = 10; App.StatBonus[11] = 250;
+                if (selWeapon2.Type != null)
+                {
+                    App.StatBonus[1] = -int.Parse(LevelTbx.Text); App.StatBonus[7] = int.Parse(LevelTbx.Text);
+                }
             }
-            else
+            else if (selWeapon1.Type == "NukaShredder")
             {
                 App.StatBonus[0] = Math.Round(App.Stats[0] * 0.7);
                 App.StatBonus[1] = Math.Round(App.Stats[1] * 0.7);

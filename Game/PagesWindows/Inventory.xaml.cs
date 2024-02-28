@@ -327,7 +327,6 @@ namespace Game.PagesWindows
                             selWeapon1 = null;
                             if (selWeapon2 != null)
                             {
-                                MessageBox.Show(selWeapon2.Type);
                                 if (selWeapon2.Type == "CrowAxe")
                                 {
                                     foreach (var child in InvCns.Children)
@@ -410,7 +409,15 @@ namespace Game.PagesWindows
                         isSecSlotBusy = true;
                     }
                 }
-                else if (isFirstSlotBusy && Position.X < 120 && Position.Y > 120 && Position.Y < 260 && weapon.Type.Text == "Shield" && isShieldAble && selWeapon2 == null)
+                else if (isFirstSlotBusy && Position.X < 120 && Position.Y > 120 && Position.Y < 260 && isSecSlotBusy && selWeapon2 != null)
+                {
+                    selWeapon2 = null;
+                    isSecSlotBusy = false;
+                    secWeapon = this.dragObject as WeaponUC;
+                    Canvas.SetTop(secWeapon, double.Parse(secWeapon.CorY.Text));
+                    Canvas.SetLeft(secWeapon, double.Parse(secWeapon.CorX.Text));
+                }
+                else if (weapon.Type.Text == "Shield" && isFirstSlotBusy && Position.X < 120 && Position.Y > 120 && Position.Y < 260 &&  isShieldAble && selWeapon2 == null)
                 {
                     Canvas.SetTop(this.dragObject, 145);
                     Canvas.SetLeft(this.dragObject, 5);

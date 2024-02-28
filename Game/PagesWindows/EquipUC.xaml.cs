@@ -100,7 +100,7 @@ namespace Game.PagesWindows
                     }
                 case "Ring":
                     {
-                        Uri uri = new Uri("pack://application:,,,/Resources/ring (1).png");
+                        Uri uri = new Uri("pack://application:,,,/Resources/ring.png");
                         Image.Source = new BitmapImage(new Uri(uri.ToString()));
                         Image.Width = 120;
                         Image.Stretch = Stretch.Uniform;

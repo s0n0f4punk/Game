@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game.PagesWindows"
         mc:Ignorable="d"
-        Title="Inventory" Height="815" Width="540">
+        Title="Inventory" Height="768" Width="540">
     <TabControl x:Name="Tabs" Background="#FF2F2F2F">
         <TabItem Width="260" Header="Оружие">
             <TabItem.Content>
                 <Canvas x:Name="SlotCns" Width="120" Height="1000" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <ScrollViewer VerticalScrollBarVisibility="Visible" Height="746">
-                        <Canvas x:Name="InvCns" Background="#FF2F2F2F" Height="860" Width="500" PreviewMouseMove="InvCns_PreviewMouseMove" PreviewMouseUp="InvCns_PreviewMouseUp">
+                        <Canvas x:Name="InvCns" Background="#FF2F2F2F" Height="900" Width="500" PreviewMouseMove="InvCns_PreviewMouseMove" PreviewMouseUp="InvCns_PreviewMouseUp">
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
                                 <Rectangle x:Name="Slot1" Width="120" Height="120" Margin="5 5 5 15" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
                                 <Rectangle x:Name="Slot2" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" >
@@ -34,13 +34,18 @@
                 <StackPanel>
                     <Canvas x:Name="ArmorSlotCns" Width="120" Height="640" HorizontalAlignment="Left">
                         <ScrollViewer VerticalScrollBarVisibility="Visible" Height="746">
-                            <Canvas x:Name="ArmorInvCns" Background="#FF2F2F2F" Height="860" Width="500" PreviewMouseMove="ArmCns_PreviewMouseMove" PreviewMouseUp="ArmCns_PreviewMouseUp">
+                            <Canvas x:Name="ArmorInvCns" Background="#FF2F2F2F" Height="900" Width="500" PreviewMouseMove="ArmCns_PreviewMouseMove" PreviewMouseUp="ArmCns_PreviewMouseUp">
                                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
                                     <Rectangle x:Name="Armor1" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
+                                    <Image Height="69" Source="/Resources/armorIco.png" Margin="0 -130 0 0"/>
                                     <Rectangle x:Name="Armor2" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
+                                    <Image Height="69" Margin="0 -130 0 0" Source="/Resources/ringIco.png" />
                                     <Rectangle x:Name="Armor3" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
+                                    <Image Height="69" Margin="0 -130 0 0" Source="/Resources/ringIco.png" />
                                     <Rectangle x:Name="Armor4" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
+                                    <Image Height="78" Margin="0 -130 0 0" Source="/Resources/necklaceIco.png" />
                                     <Rectangle x:Name="Armor5" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
+                                    <Image Height="69" Margin="0 -130 0 0" Source="/Resources/helmetIco.png" />
                                     <Button Width="120" Margin="0 5" Click="Button_Click">
                                         <Button.Effect>
                                             <DropShadowEffect BlurRadius="3" ShadowDepth="1"/>

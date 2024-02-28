@@ -169,8 +169,11 @@
   <data name="Raider" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Raider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ring__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ring (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ring" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ring.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ringIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ringIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ripper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ripper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
