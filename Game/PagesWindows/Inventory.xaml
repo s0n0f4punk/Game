@@ -37,13 +37,13 @@
                             <Canvas x:Name="ArmorInvCns" Background="#FF2F2F2F" Height="900" Width="500" PreviewMouseMove="ArmCns_PreviewMouseMove" PreviewMouseUp="ArmCns_PreviewMouseUp">
                                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
                                     <Rectangle x:Name="Armor1" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
-                                    <Image Height="69" Source="/Resources/armorIco.png" Margin="0 -130 0 0"/>
+                                    <Image Height="55" Source="/Resources/armorIco.png" Margin="0 -130 0 0"/>
                                     <Rectangle x:Name="Armor2" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
                                     <Image Height="69" Margin="0 -130 0 0" Source="/Resources/ringIco.png" />
                                     <Rectangle x:Name="Armor3" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
                                     <Image Height="69" Margin="0 -130 0 0" Source="/Resources/ringIco.png" />
                                     <Rectangle x:Name="Armor4" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
-                                    <Image Height="78" Margin="0 -130 0 0" Source="/Resources/necklaceIco.png" />
+                                    <Image Height="82" Margin="0 -130 0 0" Source="/Resources/necklaceIco.png" />
                                     <Rectangle x:Name="Armor5" Width="120" Height="120" Margin="5" Fill="#FF5B5B5B" Stroke="#FF065200" StrokeThickness="5" ></Rectangle>
                                     <Image Height="69" Margin="0 -130 0 0" Source="/Resources/helmetIco.png" />
                                     <Button Width="120" Margin="0 5" Click="Button_Click">

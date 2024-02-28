@@ -218,7 +218,35 @@ namespace Game.PagesWindows
                         Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
                         Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
                     }
-                } 
+                }
+                else if (Position.X < 120 && Position.Y < 510 && Position.Y >= 380 && selAmulet == null)
+                {
+                    if (equip.Type.Text == "Amulet")
+                    {
+                        Canvas.SetTop(this.dragObject, 395);
+                        Canvas.SetLeft(this.dragObject, 5);
+                        selAmulet = armors.Find(x => x.Rarity == equip.Rarity.Text && x.Type == equip.Type.Text);
+                    }
+                    else
+                    {
+                        Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
+                        Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
+                    }
+                }
+                else if (Position.X < 120 && Position.Y < 640 && Position.Y >= 510 && selHelmet == null)
+                {
+                    if (equip.Type.Text == "Helmet")
+                    {
+                        Canvas.SetTop(this.dragObject, 525);
+                        Canvas.SetLeft(this.dragObject, 5);
+                        selHelmet = armors.Find(x => x.Rarity == equip.Rarity.Text && x.Type == equip.Type.Text);
+                    }
+                    else
+                    {
+                        Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
+                        Canvas.SetLeft(this.dragObject, double.Parse(equip.CorX.Text));
+                    }
+                }
                 else
                 {
                     Canvas.SetTop(this.dragObject, double.Parse(equip.CorY.Text));
@@ -235,6 +263,34 @@ namespace Game.PagesWindows
                             Canvas.SetTop(this.dragObject, double.Parse(selArmor.Cor.Y.ToString()));
                             Canvas.SetLeft(this.dragObject, double.Parse(selArmor.Cor.X.ToString()));
                             selArmor = null;
+                        }
+                    }
+                    if (Position.X > 120 && equip.Type.Text == "Amulet" && selAmulet != null)
+                    {
+                        if (equip.Type.Text == selAmulet.Type && equip.Rarity.Text == selAmulet.Rarity)
+                            selAmulet = null;
+                    }
+                    else if (equip.Type.Text == "Amulet" && selAmulet != null && Position.X < 120)
+                    {
+                        if (equip.Type.Text == selAmulet.Type && equip.Rarity.Text == selAmulet.Rarity)
+                        {
+                            Canvas.SetTop(this.dragObject, double.Parse(selAmulet.Cor.Y.ToString()));
+                            Canvas.SetLeft(this.dragObject, double.Parse(selAmulet.Cor.X.ToString()));
+                            selAmulet = null;
+                        }
+                    }
+                    if (Position.X > 120 && equip.Type.Text == "Helmet" && selHelmet != null)
+                    {
+                        if (equip.Type.Text == selHelmet.Type && equip.Rarity.Text == selHelmet.Rarity)
+                            selHelmet = null;
+                    }
+                    else if (equip.Type.Text == "Helmet" && selHelmet != null && Position.X < 120)
+                    {
+                        if (equip.Type.Text == selHelmet.Type && equip.Rarity.Text == selHelmet.Rarity)
+                        {
+                            Canvas.SetTop(this.dragObject, double.Parse(selHelmet.Cor.Y.ToString()));
+                            Canvas.SetLeft(this.dragObject, double.Parse(selHelmet.Cor.X.ToString()));
+                            selHelmet = null;
                         }
                     }
                     else if (equip.Type.Text == "Ring")
